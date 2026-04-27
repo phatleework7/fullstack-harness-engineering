@@ -371,6 +371,16 @@ function audienceLabel(audience) {
   return t("preview.audiencePersonal");
 }
 
+function getCompactStack(project) {
+  const visibleStack = project.stack.slice(0, 3);
+
+  if (project.stack.length <= 3) {
+    return visibleStack;
+  }
+
+  return [...visibleStack, `+${project.stack.length - 3}`];
+}
+
 function activateProject(project) {
   state.activeProjectId = project.id;
   renderProjects();
@@ -423,13 +433,9 @@ function renderProjects() {
         <p>${localize(project.shortDescription)}</p>
       </div>
       <div class="project-meta">
-        ${project.stack.map((item) => `<span>${item}</span>`).join("")}
-      </div>
-      <div class="project-highlights">
-        ${localize(project.highlights).map((item) => `<span>${item}</span>`).join("")}
+        ${getCompactStack(project).map((item) => `<span>${item}</span>`).join("")}
       </div>
       <div class="project-footer">
-        <span class="project-goal">${localize(project.goal)}</span>
         <div class="project-actions">
           <button class="secondary-button preview-trigger" type="button">${t("cards.preview")}</button>
           <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("cards.open")}</a>

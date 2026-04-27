@@ -454,8 +454,8 @@ a {
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  min-height: 320px;
+  gap: 14px;
+  min-height: 248px;
   padding: 22px;
   border-radius: 28px;
   border: 1px solid var(--line);
@@ -481,7 +481,9 @@ a {
 }
 
 .project-top h3 {
+  margin: 0;
   font-size: 1.5rem;
+  max-width: 14ch;
 }
 
 .project-tag {
@@ -489,16 +491,14 @@ a {
 }
 
 .project-meta,
-.preview-tags,
-.project-highlights {
+.preview-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
 .project-meta span,
-.preview-tags span,
-.project-highlights span {
+.preview-tags span {
   padding: 7px 10px;
   border-radius: 999px;
   background: rgba(199, 91, 57, 0.1);
@@ -507,25 +507,24 @@ a {
   font-weight: 700;
 }
 
-.project-highlights span {
-  background: rgba(114, 89, 76, 0.08);
+.project-body p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-footer {
   margin-top: auto;
-  display: grid;
-  gap: 14px;
+  padding-top: 6px;
 }
 
-.project-year,
-.project-goal {
+.project-year {
   color: var(--muted);
   font-weight: 700;
-}
-
-.project-goal {
-  font-size: 0.94rem;
-  line-height: 1.6;
 }
 
 .project-actions,
