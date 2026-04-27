@@ -140,7 +140,26 @@
               Some deployed sites may block iframe embedding. In that case, the card and open-link flow still work.
             </p>
           </div>
-          <div class="filter-row" id="filters"></div>
+          <div class="toolbar">
+            <div class="filter-row" id="filters"></div>
+            <label class="search-shell" for="project-search">
+              <span class="search-label" data-i18n="projects.searchLabel">Quick search</span>
+              <input
+                id="project-search"
+                class="search-input"
+                type="search"
+                autocomplete="off"
+                data-i18n-placeholder="projects.searchPlaceholder"
+                placeholder="Search by title, stack, or highlight"
+              />
+            </label>
+          </div>
+          <div class="results-bar">
+            <p class="results-copy" id="results-copy"></p>
+            <button class="secondary-button" id="clear-filters" type="button" data-i18n="projects.clearFilters">
+              Reset view
+            </button>
+          </div>
         </section>
 
         <section class="workspace">

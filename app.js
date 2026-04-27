@@ -44,6 +44,12 @@ const translations = {
       label: "Project Hub",
       title: "Loc theo doi tuong va xem preview tung website ngay lap tuc.",
       note: "Mot so website deploy co the chan iframe. Khi do card va nut mo website van hoat dong binh thuong.",
+      searchLabel: "Tim nhanh",
+      searchPlaceholder: "Tim theo ten, cong nghe, hoac diem nhan",
+      clearFilters: "Dat lai bo loc",
+      resultsZero: "Khong co project nao phu hop voi bo loc hien tai.",
+      resultsOne: "Dang hien 1 project phu hop.",
+      resultsMany: "Dang hien {count} project phu hop.",
     },
     preview: {
       emptyLabel: "Hover Preview",
@@ -55,6 +61,10 @@ const translations = {
       goalLabel: "Muc tieu",
       urlLabel: "Lien ket",
       openSite: "Mo website",
+      copyLink: "Sao chep link",
+      copied: "Da sao chep",
+      highlightsLabel: "Diem nhan",
+      stackLabel: "Cong nghe",
       fallbackLabel: "Preview fallback",
       fallbackTitle: "Website nay co the dang chan iframe.",
       fallbackBody: "Ban van co the mo truc tiep trong tab moi de xem day du noi dung.",
@@ -78,6 +88,7 @@ const translations = {
     cards: {
       yearPrefix: "Nam",
       open: "Mo site",
+      preview: "Xem preview",
       emptyLabel: "Dang cho du lieu",
       emptyTitle: "Chua co project trong nhom nay.",
       emptyBody: "Ban co the them website moi trong file projects.js.",
@@ -128,6 +139,12 @@ const translations = {
       label: "Project Hub",
       title: "Filter by audience and preview each website instantly.",
       note: "Some deployed sites may block iframe embedding. When that happens, the card and direct-open flow still work.",
+      searchLabel: "Quick search",
+      searchPlaceholder: "Search by title, stack, or highlight",
+      clearFilters: "Reset view",
+      resultsZero: "No projects match the current filters.",
+      resultsOne: "Showing 1 matching project.",
+      resultsMany: "Showing {count} matching projects.",
     },
     preview: {
       emptyLabel: "Hover Preview",
@@ -139,6 +156,10 @@ const translations = {
       goalLabel: "Goal",
       urlLabel: "URL",
       openSite: "Open site",
+      copyLink: "Copy link",
+      copied: "Copied",
+      highlightsLabel: "Highlights",
+      stackLabel: "Stack",
       fallbackLabel: "Preview fallback",
       fallbackTitle: "This site may be blocking iframe embedding.",
       fallbackBody: "You can still open it directly in a new tab to view the full experience.",
@@ -162,6 +183,7 @@ const translations = {
     cards: {
       yearPrefix: "Year",
       open: "Open site",
+      preview: "Preview",
       emptyLabel: "Awaiting data",
       emptyTitle: "No projects in this group yet.",
       emptyBody: "You can add more websites in projects.js.",
@@ -173,6 +195,7 @@ const state = {
   activeFilter: "all",
   activeProjectId: null,
   language: localStorage.getItem("funfam-language") || "vi",
+  searchTerm: "",
 };
 
 const filtersRoot = document.getElementById("filters");
@@ -183,6 +206,15 @@ const familyProjectsEl = document.getElementById("family-projects");
 const girlfriendProjectsEl = document.getElementById("girlfriend-projects");
 const languageButtons = Array.from(document.querySelectorAll("[data-lang]"));
 const metaDescription = document.querySelector('meta[name="description"]');
+const searchInput = document.getElementById("project-search");
+const resultsCopy = document.getElementById("results-copy");
+const clearFiltersButton = document.getElementById("clear-filters");
+
+function interpolate(template, values) {
+  return Object.entries(values).reduce((result, [key, value]) => {
+    return result.replace(`{${key}}`, String(value));
+  }, template);
+}
 
 function t(path) {
   return path.split(".").reduce((value, key) => value[key], translations[state.language]);
@@ -219,6 +251,10 @@ function applyStaticTranslations() {
     element.textContent = t(element.dataset.i18n);
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
+  });
+
   languageButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === state.language);
   });
@@ -253,11 +289,74 @@ function renderFilters() {
 }
 
 function getVisibleProjects() {
-  if (state.activeFilter === "all") {
-    return projects;
+  const normalizedSearch = state.searchTerm.trim().toLowerCase();
+
+  const matchingFilter = state.activeFilter === "all"
+    ? projects
+    : projects.filter((project) => project.audience === state.activeFilter);
+
+  if (!normalizedSearch) {
+    return matchingFilter;
   }
 
-  return projects.filter((project) => project.audience === state.activeFilter);
+  return matchingFilter.filter((project) => {
+    const fields = [
+      localize(project.title),
+      localize(project.shortDescription),
+      localize(project.goal),
+      ...project.stack,
+      ...localize(project.highlights),
+      project.year,
+    ];
+
+    return fields.some((field) => field.toLowerCase().includes(normalizedSearch));
+  });
+}
+
+function setResultsCopy(count) {
+  if (!count) {
+    resultsCopy.textContent = t("projects.resultsZero");
+    return;
+  }
+
+  if (count === 1) {
+    resultsCopy.textContent = t("projects.resultsOne");
+    return;
+  }
+
+  resultsCopy.textContent = interpolate(t("projects.resultsMany"), { count });
+}
+
+function scrollPreviewIntoView() {
+  if (window.matchMedia("(max-width: 960px)").matches) {
+    document.querySelector(".preview-column")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}
+
+function copyProjectUrl(url, button) {
+  if (!navigator.clipboard) {
+    window.open(url, "_blank", "noreferrer");
+    return;
+  }
+
+  navigator.clipboard.writeText(url).then(() => {
+    const originalText = button.textContent;
+    button.textContent = t("preview.copied");
+    window.setTimeout(() => {
+      button.textContent = originalText;
+    }, 1500);
+  });
+}
+
+function resetFilters() {
+  state.activeFilter = "all";
+  state.searchTerm = "";
+  searchInput.value = "";
+  renderFilters();
+  renderProjects();
 }
 
 function audienceLabel(audience) {
@@ -281,6 +380,8 @@ function activateProject(project) {
 function renderProjects() {
   const visibleProjects = getVisibleProjects();
   projectsGrid.innerHTML = "";
+  setResultsCopy(visibleProjects.length);
+  clearFiltersButton.disabled = state.activeFilter === "all" && !state.searchTerm.trim();
 
   if (!visibleProjects.length) {
     const emptyState = document.createElement("div");
@@ -308,6 +409,8 @@ function renderProjects() {
     const card = document.createElement("article");
     card.className = `project-card ${activeProject.id === project.id ? "is-active" : ""}`;
     card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-pressed", String(activeProject.id === project.id));
     card.innerHTML = `
       <div class="project-top">
         <div>
@@ -322,9 +425,15 @@ function renderProjects() {
       <div class="project-meta">
         ${project.stack.map((item) => `<span>${item}</span>`).join("")}
       </div>
+      <div class="project-highlights">
+        ${localize(project.highlights).map((item) => `<span>${item}</span>`).join("")}
+      </div>
       <div class="project-footer">
         <span class="project-goal">${localize(project.goal)}</span>
-        <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("cards.open")}</a>
+        <div class="project-actions">
+          <button class="secondary-button preview-trigger" type="button">${t("cards.preview")}</button>
+          <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("cards.open")}</a>
+        </div>
       </div>
     `;
 
@@ -332,6 +441,24 @@ function renderProjects() {
     card.addEventListener("mouseenter", handler);
     card.addEventListener("focus", handler);
     card.addEventListener("click", handler);
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        handler();
+        scrollPreviewIntoView();
+      }
+    });
+
+    card.querySelector(".preview-trigger").addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      activateProject(project);
+      scrollPreviewIntoView();
+    });
+
+    card.querySelector(".project-link").addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
 
     projectsGrid.appendChild(card);
   });
@@ -349,11 +476,25 @@ function renderPreview(project) {
         <div class="preview-tags">
           ${localize(project.highlights).map((item) => `<span>${item}</span>`).join("")}
         </div>
+        <div class="preview-detail-grid">
+          <div>
+            <p class="preview-label">${t("preview.highlightsLabel")}</p>
+            <p>${localize(project.highlights).join(" • ")}</p>
+          </div>
+          <div>
+            <p class="preview-label">${t("preview.stackLabel")}</p>
+            <p>${project.stack.join(" • ")}</p>
+          </div>
+        </div>
         <p>
           <strong>${t("preview.goalLabel")}:</strong> ${localize(project.goal)}<br />
           <strong>${t("preview.urlLabel")}:</strong>
           <a href="${project.url}" target="_blank" rel="noreferrer">${project.url}</a>
         </p>
+        <div class="preview-actions">
+          <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("preview.openSite")}</a>
+          <button class="secondary-button" id="copy-link-button" type="button">${t("preview.copyLink")}</button>
+        </div>
       </div>
       <div class="preview-frame-wrap">
         <iframe
@@ -369,6 +510,7 @@ function renderPreview(project) {
 
   const iframe = previewContent.querySelector("iframe");
   const frameWrap = previewContent.querySelector(".preview-frame-wrap");
+  const copyButton = previewContent.querySelector("#copy-link-button");
 
   const fallbackTimeout = window.setTimeout(() => {
     if (!iframe.dataset.loaded) {
@@ -389,6 +531,10 @@ function renderPreview(project) {
     iframe.dataset.loaded = "true";
     window.clearTimeout(fallbackTimeout);
   });
+
+  copyButton.addEventListener("click", () => {
+    copyProjectUrl(project.url, copyButton);
+  });
 }
 
 function setLanguage(language) {
@@ -406,6 +552,13 @@ languageButtons.forEach((button) => {
     }
   });
 });
+
+searchInput.addEventListener("input", (event) => {
+  state.searchTerm = event.target.value;
+  renderProjects();
+});
+
+clearFiltersButton.addEventListener("click", resetFilters);
 
 setStats();
 applyStaticTranslations();
