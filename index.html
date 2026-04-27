@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FunFam Projects Hub</title>
+    <meta
+      name="description"
+      content="A personal hub that gathers meaningful projects for family, girlfriend, and personal work."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand-mark" href="#top">
+          <span class="brand-kicker">FunFam</span>
+          <strong>Projects Hub</strong>
+        </a>
+        <div class="topbar-actions">
+          <nav class="topnav">
+            <a href="#projects" data-i18n="nav.projects">Projects</a>
+            <a href="#collections" data-i18n="nav.collections">Collections</a>
+            <a href="#workflow" data-i18n="nav.workflow">Workflow</a>
+          </nav>
+          <div class="lang-switch" aria-label="Language switcher">
+            <button class="lang-pill active" type="button" data-lang="vi">VI</button>
+            <button class="lang-pill" type="button" data-lang="en">EN</button>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow" data-i18n="hero.eyebrow">FunFam Collection</p>
+            <h1 data-i18n="hero.title">
+              A home for all the projects made with love for family and for her.
+            </h1>
+            <p class="hero-text" data-i18n="hero.body">
+              This website gathers your personal projects into one place so you can
+              revisit, present, and preview them with ease. Hover a card to open a
+              live preview right on the page whenever embedding is allowed.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#projects" data-i18n="hero.primaryCta">View projects</a>
+              <a class="ghost-link" href="#workflow" data-i18n="hero.secondaryCta">Learn while building</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="note-label" data-i18n="hero.panelLabel">Why this hub works</p>
+            <div class="hero-panel-grid">
+              <article>
+                <span data-i18n="hero.panelOneTitle">Showcase</span>
+                <p data-i18n="hero.panelOneBody">
+                  Turn emotional side projects into one polished personal portfolio.
+                </p>
+              </article>
+              <article>
+                <span data-i18n="hero.panelTwoTitle">Preview</span>
+                <p data-i18n="hero.panelTwoBody">
+                  Hover a card to inspect the project quickly without leaving the page.
+                </p>
+              </article>
+              <article>
+                <span data-i18n="hero.panelThreeTitle">Reflect</span>
+                <p data-i18n="hero.panelThreeBody">
+                  Keep each project tied to one learning outcome so the portfolio also becomes a lab.
+                </p>
+              </article>
+            </div>
+          </aside>
+        </section>
+
+        <section class="stats-strip">
+          <article>
+            <span id="total-projects">0</span>
+            <p data-i18n="stats.total">total projects</p>
+          </article>
+          <article>
+            <span id="family-projects">0</span>
+            <p data-i18n="stats.family">for family</p>
+          </article>
+          <article>
+            <span id="girlfriend-projects">0</span>
+            <p data-i18n="stats.girlfriend">for girlfriend</p>
+          </article>
+          <article>
+            <span id="personal-projects">0</span>
+            <p data-i18n="stats.personal">personal and work</p>
+          </article>
+        </section>
+
+        <section class="collections" id="collections">
+          <div class="section-head">
+            <div>
+              <p class="section-label" data-i18n="collections.label">Collections</p>
+              <h2 data-i18n="collections.title">Three meaningful lanes, one personal archive.</h2>
+            </div>
+          </div>
+          <div class="collection-grid">
+            <article class="collection-card warm">
+              <p class="collection-tag" data-i18n="collections.familyTag">Family side</p>
+              <h3 data-i18n="collections.familyTitle">Projects that celebrate birthdays, memories, and closeness.</h3>
+              <p data-i18n="collections.familyBody">
+                These are warm, respectful, memory-driven websites meant to preserve family moments and create lasting gifts.
+              </p>
+            </article>
+            <article class="collection-card rose">
+              <p class="collection-tag" data-i18n="collections.girlfriendTag">Girlfriend side</p>
+              <h3 data-i18n="collections.girlfriendTitle">Projects that turn feelings into playful, romantic experiences.</h3>
+              <p data-i18n="collections.girlfriendBody">
+                These are emotional microsites and interactive surprises: flowers, games, holidays, music, and love notes.
+              </p>
+            </article>
+            <article class="collection-card mint">
+              <p class="collection-tag" data-i18n="collections.personalTag">Personal and work</p>
+              <h3 data-i18n="collections.personalTitle">Projects for business, branding, and professional presentation.</h3>
+              <p data-i18n="collections.personalBody">
+                These include portfolio websites, business landing pages, and projects that sharpen both craft and credibility.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="controls" id="projects">
+          <div class="section-head">
+            <div>
+              <p class="section-label" data-i18n="projects.label">Project Hub</p>
+              <h2 data-i18n="projects.title">Filter by audience and preview each website instantly.</h2>
+            </div>
+            <p class="controls-note" data-i18n="projects.note">
+              Some deployed sites may block iframe embedding. In that case, the card and open-link flow still work.
+            </p>
+          </div>
+          <div class="filter-row" id="filters"></div>
+        </section>
+
+        <section class="workspace">
+          <div class="projects-column">
+            <div class="projects-grid" id="projects-grid"></div>
+          </div>
+
+          <aside class="preview-column">
+            <div class="preview-card">
+              <div class="preview-browser-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="preview-content" id="preview-content">
+                <div class="preview-empty">
+                  <p class="section-label" data-i18n="preview.emptyLabel">Hover Preview</p>
+                  <h3 data-i18n="preview.emptyTitle">Move over a project to inspect it here.</h3>
+                  <p data-i18n="preview.emptyBody">
+                    The panel will show description, tags, intention, and then try loading the live website.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="workflow" id="workflow">
+          <div class="section-head">
+            <div>
+              <p class="section-label" data-i18n="workflow.label">Harness Your Learning</p>
+              <h2 data-i18n="workflow.title">Use personal projects as a serious engineering training ground.</h2>
+            </div>
+          </div>
+          <div class="workflow-grid">
+            <article>
+              <h3 data-i18n="workflow.stepOneTitle">1. Build for emotion</h3>
+              <p data-i18n="workflow.stepOneBody">
+                Start with a real human purpose: a birthday gift, a memory wall, a romantic surprise, or a holiday experience.
+              </p>
+            </article>
+            <article>
+              <h3 data-i18n="workflow.stepTwoTitle">2. Learn one hard skill per project</h3>
+              <p data-i18n="workflow.stepTwoBody">
+                Pair each build with one clear technical challenge such as animation, 3D, CI/CD, accessibility, testing, or CMS design.
+              </p>
+            </article>
+            <article>
+              <h3 data-i18n="workflow.stepThreeTitle">3. Keep an engineering loop</h3>
+              <p data-i18n="workflow.stepThreeBody">
+                After shipping, write down what worked, what to reuse, and what you want to improve next. That turns each gift into real growth.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./projects.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
