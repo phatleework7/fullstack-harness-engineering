@@ -1,0 +1,9 @@
+{
+  "name": "fullstack-loving",
+  "private": true,
+  "scripts": {
+    "build:projects": "node scripts/build-projects.js",
+    "sync:hosting": "node scripts/sync-hosting.js",
+    "sync:all": "node scripts/sync-hosting.js && node scripts/build-projects.js"
+  }
+}
