@@ -32,6 +32,19 @@ function dedupeStack(parts) {
   return [...new Set(parts.filter(Boolean))];
 }
 
+function toTimestamp(value) {
+  if (!value) {
+    return 0;
+  }
+
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+
+  const parsed = Date.parse(String(value));
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
 async function fetchJson(url, token, label) {
   const response = await fetch(url, {
     headers: {
@@ -131,9 +144,9 @@ function mergeGeneratedProjects(existingProjects, syncedProjects, syncedPlatform
   merged.push(...untouchedProjects);
 
   merged.sort((left, right) => {
-    const rightDate = right.updatedAt || right.createdAt || "";
-    const leftDate = left.updatedAt || left.createdAt || "";
-    return rightDate.localeCompare(leftDate);
+    const rightDate = toTimestamp(right.updatedAt || right.createdAt);
+    const leftDate = toTimestamp(left.updatedAt || left.createdAt);
+    return rightDate - leftDate;
   });
 
   return merged;
