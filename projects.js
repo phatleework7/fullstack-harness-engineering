@@ -1,42 +1,5 @@
 const projects = [
   {
-    "id": "roseforvy",
-    "title": {
-      "vi": "Rose For Vy",
-      "en": "Rose For Vy"
-    },
-    "audience": "girlfriend",
-    "year": "2026",
-    "url": "https://roseforvy.netlify.app",
-    "shortDescription": {
-      "vi": "Microsite 20/10 tang Lam Thanh Vy voi vuon hoa hong 3D, loi nhan an va nhac nen lang man.",
-      "en": "A 20/10 microsite for Lam Thanh Vy featuring a 3D rose garden, a hidden note, and romantic background music."
-    },
-    "goal": {
-      "vi": "Tao mot mon qua digital bat ngo, co tinh tuong tac va truyen tai loi chuc mot cach mem mai.",
-      "en": "Create a surprising digital gift that feels interactive and delivers a heartfelt message in a soft, memorable way."
-    },
-    "stack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Three.js",
-      "Netlify"
-    ],
-    "highlights": {
-      "vi": [
-        "vuon hoa 3D",
-        "loi nhan bi mat",
-        "nhac nen"
-      ],
-      "en": [
-        "3D rose garden",
-        "secret message",
-        "background music"
-      ]
-    }
-  },
-  {
     "id": "valentine26-for-sakna",
     "title": {
       "vi": "Valentine 26 For Sakna",
@@ -110,13 +73,87 @@ const projects = [
     }
   },
   {
+    "id": "thien-y",
+    "title": {
+      "vi": "Thien Y",
+      "en": "Thien Y"
+    },
+    "audience": "personal",
+    "year": "2025",
+    "url": "https://thien-y.vercel.app",
+    "shortDescription": {
+      "vi": "Landing page cho quan an chay Thien Y voi gioi thieu thuong hieu, thuc don, uu dai, lien he va ban do.",
+      "en": "A landing page for Thien Y vegetarian restaurant featuring brand story, menu, promotions, contact details, and map directions."
+    },
+    "goal": {
+      "vi": "Xay dung website kinh doanh gon gang de gioi thieu quan, tang do tin cay va giup khach hang de dang lien he hoac tim duong.",
+      "en": "Build a clean business website that introduces the restaurant, improves trust, and makes it easy for customers to contact or find the place."
+    },
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI",
+      "Vercel"
+    ],
+    "highlights": {
+      "vi": [
+        "trang gioi thieu quan",
+        "thuc don",
+        "uu dai va lien he"
+      ],
+      "en": [
+        "restaurant landing page",
+        "menu section",
+        "promotions and contact"
+      ]
+    }
+  },
+  {
+    "id": "roseforvy",
+    "title": {
+      "vi": "Rose For Vy",
+      "en": "Rose For Vy"
+    },
+    "audience": "girlfriend",
+    "year": "2025",
+    "url": "https://roseforvy.netlify.app",
+    "shortDescription": {
+      "vi": "Microsite 20/10 tang Lam Thanh Vy voi vuon hoa hong 3D, loi nhan an va nhac nen lang man.",
+      "en": "A 20/10 microsite for Lam Thanh Vy featuring a 3D rose garden, a hidden note, and romantic background music."
+    },
+    "goal": {
+      "vi": "Tao mot mon qua digital bat ngo, co tinh tuong tac va truyen tai loi chuc mot cach mem mai.",
+      "en": "Create a surprising digital gift that feels interactive and delivers a heartfelt message in a soft, memorable way."
+    },
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Three.js",
+      "Netlify"
+    ],
+    "highlights": {
+      "vi": [
+        "vuon hoa 3D",
+        "loi nhan bi mat",
+        "nhac nen"
+      ],
+      "en": [
+        "3D rose garden",
+        "secret message",
+        "background music"
+      ]
+    }
+  },
+  {
     "id": "happy-birthday-aunt-utthuy",
     "title": {
       "vi": "Happy Birthday Aunt Ut Thuy",
       "en": "Happy Birthday Aunt Ut Thuy"
     },
     "audience": "family",
-    "year": "2026",
+    "year": "2025",
     "url": "https://happy-birthday-aunt-utthuy.netlify.app",
     "shortDescription": {
       "vi": "Trang chuc mung sinh nhat trang nha cho Ut Thuy voi hero slider, gallery ky niem, loi chuc va nhac nen.",
@@ -147,76 +184,69 @@ const projects = [
     }
   },
   {
-    "id": "thien-y",
+    "id": "phatleework7-github-io",
     "title": {
-      "vi": "Thien Y",
-      "en": "Thien Y"
+      "vi": "Phatleework7 Github Io",
+      "en": "Phatleework7 Github Io"
     },
     "audience": "personal",
-    "year": "2026",
-    "url": "https://thien-y.vercel.app/",
+    "year": "2025",
+    "url": "https://phatleework7-github-io.vercel.app",
     "shortDescription": {
-      "vi": "Landing page cho quan an chay Thien Y voi gioi thieu thuong hieu, thuc don, uu dai, lien he va ban do.",
-      "en": "A landing page for Thien Y vegetarian restaurant featuring brand story, menu, promotions, contact details, and map directions."
+      "vi": "Project moi duoc dong bo tu Vercel. Ban co the bo sung noi dung card trong data/projects-meta.json.",
+      "en": "A newly synced Vercel project. You can enrich this card in data/projects-meta.json."
     },
     "goal": {
-      "vi": "Xay dung website kinh doanh gon gang de gioi thieu quan, tang do tin cay va giup khach hang de dang lien he hoac tim duong.",
-      "en": "Build a clean business website that introduces the restaurant, improves trust, and makes it easy for customers to contact or find the place."
+      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
+      "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
     },
     "stack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive UI",
+      "nextjs",
       "Vercel"
     ],
     "highlights": {
       "vi": [
-        "trang gioi thieu quan",
-        "thuc don",
-        "uu dai va lien he"
+        "dong bo tu dong",
+        "Vercel",
+        "can bo sung metadata"
       ],
       "en": [
-        "restaurant landing page",
-        "menu section",
-        "promotions and contact"
+        "automatic sync",
+        "Vercel",
+        "metadata pending"
       ]
     }
   },
   {
-    "id": "martinle",
+    "id": "venerable-liger-871bb0",
     "title": {
-      "vi": "Martin Le Portfolio",
-      "en": "Martin Le Portfolio"
+      "vi": "Venerable Liger 871bb0",
+      "en": "Venerable Liger 871bb0"
     },
     "audience": "personal",
-    "year": "2026",
-    "url": "https://www.martinle.me/",
+    "year": "2025",
+    "url": "https://venerable-liger-871bb0.netlify.app",
     "shortDescription": {
-      "vi": "Portfolio ca nhan cua Le Thanh Phat gioi thieu ban than, du an, lien he va nang luc full-stack development.",
-      "en": "A personal portfolio for Le Thanh Phat showcasing profile, projects, contact links, and full-stack development positioning."
+      "vi": "Project moi duoc dong bo tu Netlify. Ban co the bo sung noi dung card trong data/projects-meta.json.",
+      "en": "A newly synced Netlify project. You can enrich this card in data/projects-meta.json."
     },
     "goal": {
-      "vi": "Tao mot website thuong hieu ca nhan de gioi thieu nang luc, du an va tao diem cham chuyen nghiep voi khach hang hoac nha tuyen dung.",
-      "en": "Create a personal brand website that presents skills and projects while giving clients or recruiters a professional first impression."
+      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
+      "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
     },
     "stack": [
-      "Next.js",
-      "React",
-      "JavaScript",
-      "Portfolio UI",
-      "Vercel"
+      "Netlify"
     ],
     "highlights": {
       "vi": [
-        "thuong hieu ca nhan",
-        "gioi thieu du an",
-        "contact va social links"
+        "dong bo tu dong",
+        "Netlify",
+        "can bo sung metadata"
       ],
       "en": [
-        "personal branding",
-        "project showcase",
-        "contact and social links"
+        "automatic sync",
+        "Netlify",
+        "metadata pending"
       ]
     }
   }
