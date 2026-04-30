@@ -8,6 +8,13 @@
       name="description"
       content="A personal hub that gathers meaningful projects for family, girlfriend, and personal work."
     />
+    <meta property="og:title" content="FunFam Projects Hub" />
+    <meta
+      property="og:description"
+      content="A bilingual portfolio hub for emotional side projects, learning notes, and live website previews."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,11 +30,24 @@
           <span class="brand-kicker">FunFam</span>
           <strong>Projects Hub</strong>
         </a>
-        <div class="topbar-actions">
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          type="button"
+          aria-controls="topbar-actions"
+          aria-expanded="false"
+          data-i18n-aria-label="nav.menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="topbar-actions" id="topbar-actions">
           <nav class="topnav">
-            <a href="#projects" data-i18n="nav.projects">Projects</a>
-            <a href="#collections" data-i18n="nav.collections">Collections</a>
-            <a href="#workflow" data-i18n="nav.workflow">Workflow</a>
+            <a href="#projects" data-nav-link="projects" data-i18n="nav.projects">Projects</a>
+            <a href="#collections" data-nav-link="collections" data-i18n="nav.collections">Collections</a>
+            <a href="#timeline" data-nav-link="timeline" data-i18n="nav.timeline">Timeline</a>
+            <a href="#workflow" data-nav-link="workflow" data-i18n="nav.workflow">Workflow</a>
           </nav>
           <div class="lang-switch" aria-label="Language switcher">
             <button class="lang-pill active" type="button" data-lang="vi">VI</button>
@@ -50,7 +70,9 @@
             </p>
             <div class="hero-actions">
               <a class="primary-link" href="#projects" data-i18n="hero.primaryCta">View projects</a>
-              <a class="ghost-link" href="#workflow" data-i18n="hero.secondaryCta">Learn while building</a>
+              <button class="ghost-link button-link" id="presentation-start" type="button" data-i18n="hero.secondaryCta">
+                Presentation mode
+              </button>
             </div>
           </div>
 
@@ -141,7 +163,16 @@
             </p>
           </div>
           <div class="toolbar">
-            <div class="filter-row" id="filters"></div>
+            <button
+              class="secondary-button filter-toggle"
+              id="filter-toggle"
+              type="button"
+              aria-controls="filter-panel"
+              aria-expanded="false"
+              data-i18n="projects.filterToggle"
+            >
+              Filters
+            </button>
             <label class="search-shell" for="project-search">
               <span class="search-label" data-i18n="projects.searchLabel">Quick search</span>
               <input
@@ -153,6 +184,20 @@
                 placeholder="Search by title, stack, or highlight"
               />
             </label>
+          </div>
+          <div class="filter-panel" id="filter-panel" hidden>
+            <div>
+              <p class="search-label" data-i18n="projects.audienceFilterLabel">Audience filter</p>
+              <div class="filter-row" id="filters"></div>
+            </div>
+            <div>
+              <p class="search-label" data-i18n="projects.stackFilterLabel">Stack filter</p>
+              <div class="filter-row" id="stack-filters"></div>
+            </div>
+            <div>
+              <p class="search-label" data-i18n="projects.statusFilterLabel">Status filter</p>
+              <div class="filter-row" id="status-filters"></div>
+            </div>
           </div>
           <div class="results-bar">
             <p class="results-copy" id="results-copy"></p>
@@ -170,9 +215,9 @@
           <aside class="preview-column">
             <div class="preview-card">
               <div class="preview-browser-bar">
-                <span></span>
-                <span></span>
-                <span></span>
+                <button class="window-dot close" id="preview-close" type="button" aria-label="Close preview"></button>
+                <button class="window-dot minimize" id="preview-minimize" type="button" aria-label="Minimize preview"></button>
+                <button class="window-dot maximize" id="preview-maximize" type="button" aria-label="Open project detail"></button>
               </div>
               <div class="preview-content" id="preview-content">
                 <div class="preview-empty">
@@ -185,6 +230,16 @@
               </div>
             </div>
           </aside>
+        </section>
+
+        <section class="timeline" id="timeline">
+          <div class="section-head">
+            <div>
+              <p class="section-label" data-i18n="timeline.label">Learning Timeline</p>
+              <h2 data-i18n="timeline.title">Every shipped gift leaves one reusable skill behind.</h2>
+            </div>
+          </div>
+          <div class="timeline-list" id="timeline-list"></div>
         </section>
 
         <section class="workflow" id="workflow">
@@ -217,6 +272,13 @@
         </section>
       </main>
     </div>
+
+    <dialog class="project-dialog" id="project-dialog">
+      <div class="dialog-shell">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close">&times;</button>
+        <div id="dialog-content"></div>
+      </div>
+    </dialog>
 
     <script src="./projects.js"></script>
     <script src="./app.js"></script>

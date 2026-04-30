@@ -5,14 +5,16 @@ const translations = {
     nav: {
       projects: "Projects",
       collections: "Bo suu tap",
+      timeline: "Timeline",
       workflow: "Huong hoc",
+      menu: "Mo menu",
     },
     hero: {
       eyebrow: "FunFam Collection",
       title: "Noi gom tat ca project y nghia cho gia dinh, nguoi yeu, va hanh trinh xay dung thuong hieu ca nhan.",
       body: "Trang nay giup ban luu tru, gioi thieu, va xem nhanh cac website ca nhan trong mot giao dien gon gang hon. Re chuot vao card de thu mo preview ngay tren trang khi website cho phep nhung iframe.",
       primaryCta: "Xem project",
-      secondaryCta: "Hoc trong khi lam",
+      secondaryCta: "Che do trinh chieu",
       panelLabel: "Vi sao hub nay huu ich",
       panelOneTitle: "Showcase",
       panelOneBody: "Gop cac side project day cam xuc thanh mot portfolio ca nhan gon gang va co chu y.",
@@ -46,6 +48,11 @@ const translations = {
       note: "Mot so website deploy co the chan iframe. Khi do card va nut mo website van hoat dong binh thuong.",
       searchLabel: "Tim nhanh",
       searchPlaceholder: "Tim theo ten, cong nghe, hoac diem nhan",
+      filterToggle: "Bo loc",
+      filterToggleActive: "An bo loc",
+      audienceFilterLabel: "Loc doi tuong",
+      stackFilterLabel: "Loc cong nghe",
+      statusFilterLabel: "Loc trang thai",
       clearFilters: "Dat lai bo loc",
       resultsZero: "Khong co project nao phu hop voi bo loc hien tai.",
       resultsOne: "Dang hien 1 project phu hop.",
@@ -63,11 +70,26 @@ const translations = {
       openSite: "Mo website",
       copyLink: "Sao chep link",
       copied: "Da sao chep",
+      details: "Xem case study",
+      source: "Source",
       highlightsLabel: "Diem nhan",
       stackLabel: "Cong nghe",
       fallbackLabel: "Preview fallback",
       fallbackTitle: "Website nay co the dang chan iframe.",
       fallbackBody: "Ban van co the mo truc tiep trong tab moi de xem day du noi dung.",
+    },
+    detail: {
+      problem: "Bai toan",
+      outcome: "Ket qua",
+      lesson: "Bai hoc",
+      featuredSkill: "Ky nang chinh",
+      presentation: "Trinh chieu",
+      previous: "Truoc",
+      next: "Sau",
+    },
+    timeline: {
+      label: "Learning Timeline",
+      title: "Moi project da ship de lai mot ky nang co the tai su dung.",
     },
     workflow: {
       label: "Harness Your Learning",
@@ -89,9 +111,17 @@ const translations = {
       yearPrefix: "Nam",
       open: "Mo site",
       preview: "Xem preview",
+      details: "Case study",
       emptyLabel: "Dang cho du lieu",
       emptyTitle: "Chua co project trong nhom nay.",
       emptyBody: "Ban co the them website moi trong file projects.js.",
+    },
+    status: {
+      all: "Tat ca trang thai",
+      live: "Dang live",
+      archived: "Luu tru",
+      inProgress: "Dang lam",
+      needsMetadata: "Can metadata",
     },
   },
   en: {
@@ -100,14 +130,16 @@ const translations = {
     nav: {
       projects: "Projects",
       collections: "Collections",
+      timeline: "Timeline",
       workflow: "Workflow",
+      menu: "Open menu",
     },
     hero: {
       eyebrow: "FunFam Collection",
       title: "A home for meaningful projects built for family, for her, and for your own personal brand.",
       body: "This website gathers your personal projects into one place so you can revisit, present, and preview them with ease. Hover a card to open a live preview right on the page whenever embedding is allowed.",
       primaryCta: "View projects",
-      secondaryCta: "Learn while building",
+      secondaryCta: "Presentation mode",
       panelLabel: "Why this hub works",
       panelOneTitle: "Showcase",
       panelOneBody: "Bring emotional side projects together into a polished personal portfolio.",
@@ -141,6 +173,11 @@ const translations = {
       note: "Some deployed sites may block iframe embedding. When that happens, the card and direct-open flow still work.",
       searchLabel: "Quick search",
       searchPlaceholder: "Search by title, stack, or highlight",
+      filterToggle: "Filters",
+      filterToggleActive: "Hide filters",
+      audienceFilterLabel: "Audience filter",
+      stackFilterLabel: "Stack filter",
+      statusFilterLabel: "Status filter",
       clearFilters: "Reset view",
       resultsZero: "No projects match the current filters.",
       resultsOne: "Showing 1 matching project.",
@@ -158,11 +195,26 @@ const translations = {
       openSite: "Open site",
       copyLink: "Copy link",
       copied: "Copied",
+      details: "View case study",
+      source: "Source",
       highlightsLabel: "Highlights",
       stackLabel: "Stack",
       fallbackLabel: "Preview fallback",
       fallbackTitle: "This site may be blocking iframe embedding.",
       fallbackBody: "You can still open it directly in a new tab to view the full experience.",
+    },
+    detail: {
+      problem: "Problem",
+      outcome: "Outcome",
+      lesson: "Lesson",
+      featuredSkill: "Featured skill",
+      presentation: "Presentation",
+      previous: "Previous",
+      next: "Next",
+    },
+    timeline: {
+      label: "Learning Timeline",
+      title: "Every shipped gift leaves one reusable skill behind.",
     },
     workflow: {
       label: "Harness Your Learning",
@@ -184,23 +236,51 @@ const translations = {
       yearPrefix: "Year",
       open: "Open site",
       preview: "Preview",
+      details: "Case study",
       emptyLabel: "Awaiting data",
       emptyTitle: "No projects in this group yet.",
       emptyBody: "You can add more websites in projects.js.",
+    },
+    status: {
+      all: "All statuses",
+      live: "Live",
+      archived: "Archived",
+      inProgress: "In progress",
+      needsMetadata: "Needs metadata",
     },
   },
 };
 
 const state = {
   activeFilter: "all",
+  activeStack: "all",
+  activeStatus: "all",
   activeProjectId: null,
+  filtersOpen: false,
   language: localStorage.getItem("funfam-language") || "vi",
+  navOpen: false,
+  presentationIndex: 0,
   searchTerm: "",
 };
 
 const filtersRoot = document.getElementById("filters");
+const filterPanel = document.getElementById("filter-panel");
+const filterToggle = document.getElementById("filter-toggle");
+const menuToggle = document.getElementById("menu-toggle");
+const topbarActions = document.getElementById("topbar-actions");
+const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
+const stackFiltersRoot = document.getElementById("stack-filters");
+const statusFiltersRoot = document.getElementById("status-filters");
 const projectsGrid = document.getElementById("projects-grid");
 const previewContent = document.getElementById("preview-content");
+const timelineList = document.getElementById("timeline-list");
+const projectDialog = document.getElementById("project-dialog");
+const dialogContent = document.getElementById("dialog-content");
+const dialogClose = document.getElementById("dialog-close");
+const presentationStart = document.getElementById("presentation-start");
+const previewClose = document.getElementById("preview-close");
+const previewMinimize = document.getElementById("preview-minimize");
+const previewMaximize = document.getElementById("preview-maximize");
 const totalProjectsEl = document.getElementById("total-projects");
 const familyProjectsEl = document.getElementById("family-projects");
 const girlfriendProjectsEl = document.getElementById("girlfriend-projects");
@@ -225,7 +305,18 @@ function localize(value) {
     return value;
   }
 
-  return value[state.language];
+  return value?.[state.language] || "";
+}
+
+function statusLabel(status) {
+  const labels = {
+    live: t("status.live"),
+    archived: t("status.archived"),
+    "in-progress": t("status.inProgress"),
+    "needs-metadata": t("status.needsMetadata"),
+  };
+
+  return labels[status] || labels.live;
 }
 
 function setStats() {
@@ -255,9 +346,15 @@ function applyStaticTranslations() {
     element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
   });
 
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
+  });
+
   languageButtons.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === state.language);
   });
+
+  updateFilterToggle();
 }
 
 function getFilters() {
@@ -288,12 +385,113 @@ function renderFilters() {
   });
 }
 
+function getStackFilters() {
+  const stackItems = [...new Set(projects.flatMap((project) => project.stack))].sort();
+  return [{ id: "all", label: t("filters.all") }, ...stackItems.map((item) => ({ id: item, label: item }))];
+}
+
+function getStatusFilters() {
+  const statuses = [...new Set(projects.map((project) => project.status || "live"))];
+  return [
+    { id: "all", label: t("status.all") },
+    ...statuses.map((status) => ({ id: status, label: statusLabel(status) })),
+  ];
+}
+
+function renderButtonFilters(root, items, activeValue, onSelect) {
+  root.innerHTML = "";
+
+  items.forEach((item) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `pill small ${activeValue === item.id ? "active" : ""}`;
+    button.textContent = item.label;
+    button.addEventListener("click", () => onSelect(item.id));
+    root.appendChild(button);
+  });
+}
+
+function renderAdvancedFilters() {
+  renderButtonFilters(stackFiltersRoot, getStackFilters(), state.activeStack, (id) => {
+    state.activeStack = id;
+    renderAdvancedFilters();
+    renderProjects();
+  });
+
+  renderButtonFilters(statusFiltersRoot, getStatusFilters(), state.activeStatus, (id) => {
+    state.activeStatus = id;
+    renderAdvancedFilters();
+    renderProjects();
+  });
+}
+
+function updateFilterToggle() {
+  filterPanel.hidden = !state.filtersOpen;
+  filterToggle.setAttribute("aria-expanded", String(state.filtersOpen));
+  filterToggle.textContent = state.filtersOpen
+    ? t("projects.filterToggleActive")
+    : t("projects.filterToggle");
+}
+
+function toggleFilters() {
+  state.filtersOpen = !state.filtersOpen;
+  updateFilterToggle();
+}
+
+function updateMenuToggle() {
+  topbarActions.classList.toggle("is-open", state.navOpen);
+  menuToggle.classList.toggle("is-open", state.navOpen);
+  menuToggle.setAttribute("aria-expanded", String(state.navOpen));
+}
+
+function closeMobileMenu() {
+  state.navOpen = false;
+  updateMenuToggle();
+}
+
+function setActiveNav(sectionId) {
+  navLinks.forEach((link) => {
+    const isActive = link.dataset.navLink === sectionId;
+    link.classList.toggle("is-active", isActive);
+    link.setAttribute("aria-current", isActive ? "page" : "false");
+  });
+}
+
+function observeSections() {
+  const sections = ["projects", "collections", "timeline", "workflow"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  const observer = new IntersectionObserver((entries) => {
+    const activeEntry = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((left, right) => right.intersectionRatio - left.intersectionRatio)[0];
+
+    if (activeEntry) {
+      setActiveNav(activeEntry.target.id);
+    }
+  }, {
+    rootMargin: "-25% 0px -55% 0px",
+    threshold: [0.15, 0.35, 0.6],
+  });
+
+  sections.forEach((section) => observer.observe(section));
+}
+
 function getVisibleProjects() {
   const normalizedSearch = state.searchTerm.trim().toLowerCase();
 
-  const matchingFilter = state.activeFilter === "all"
+  let matchingFilter = state.activeFilter === "all"
     ? projects
     : projects.filter((project) => project.audience === state.activeFilter);
+
+  if (state.activeStack !== "all") {
+    matchingFilter = matchingFilter.filter((project) => project.stack.includes(state.activeStack));
+  }
+
+  if (state.activeStatus !== "all") {
+    matchingFilter = matchingFilter.filter((project) => (project.status || "live") === state.activeStatus);
+  }
 
   if (!normalizedSearch) {
     return matchingFilter;
@@ -304,8 +502,12 @@ function getVisibleProjects() {
       localize(project.title),
       localize(project.shortDescription),
       localize(project.goal),
+      localize(project.problem),
+      localize(project.outcome),
+      localize(project.lesson),
       ...project.stack,
       ...localize(project.highlights),
+      project.featuredSkill,
       project.year,
     ];
 
@@ -353,9 +555,13 @@ function copyProjectUrl(url, button) {
 
 function resetFilters() {
   state.activeFilter = "all";
+  state.activeStack = "all";
+  state.activeStatus = "all";
+  state.activeProjectId = null;
   state.searchTerm = "";
   searchInput.value = "";
   renderFilters();
+  renderAdvancedFilters();
   renderProjects();
 }
 
@@ -385,13 +591,52 @@ function activateProject(project) {
   state.activeProjectId = project.id;
   renderProjects();
   renderPreview(project);
+  document.querySelector(".preview-column")?.classList.add("is-visible");
+}
+
+function hidePreview() {
+  state.activeProjectId = null;
+  previewContent.innerHTML = `
+    <div class="preview-empty">
+      <p class="section-label">${t("preview.emptyLabel")}</p>
+      <h3>${t("preview.emptyTitle")}</h3>
+      <p>${t("preview.emptyBody")}</p>
+    </div>
+  `;
+  document.querySelector(".preview-column")?.classList.remove("is-visible");
+  renderProjects();
+}
+
+function maximizePreview() {
+  const activeProject = projects.find((project) => project.id === state.activeProjectId);
+
+  if (activeProject) {
+    openProjectDetail(activeProject);
+  }
+}
+
+function getProjectIndex(projectId) {
+  return projects.findIndex((project) => project.id === projectId);
+}
+
+function getThumbnailMarkup(project) {
+  return `
+    <div class="project-thumb ${project.thumbnailTone || "warm"}">
+      <span>${project.platform || "web"}</span>
+      <strong>${project.featuredSkill || project.stack[0] || "Web"}</strong>
+    </div>
+  `;
 }
 
 function renderProjects() {
   const visibleProjects = getVisibleProjects();
   projectsGrid.innerHTML = "";
   setResultsCopy(visibleProjects.length);
-  clearFiltersButton.disabled = state.activeFilter === "all" && !state.searchTerm.trim();
+  clearFiltersButton.disabled =
+    state.activeFilter === "all" &&
+    state.activeStack === "all" &&
+    state.activeStatus === "all" &&
+    !state.searchTerm.trim();
 
   if (!visibleProjects.length) {
     const emptyState = document.createElement("div");
@@ -409,25 +654,29 @@ function renderProjects() {
         <p>${t("preview.emptyBody")}</p>
       </div>
     `;
+    document.querySelector(".preview-column")?.classList.remove("is-visible");
     return;
   }
 
-  const activeProject =
-    visibleProjects.find((project) => project.id === state.activeProjectId) || visibleProjects[0];
+  const activeProject = visibleProjects.find((project) => project.id === state.activeProjectId);
 
   visibleProjects.forEach((project) => {
     const card = document.createElement("article");
-    card.className = `project-card ${activeProject.id === project.id ? "is-active" : ""}`;
+    card.className = `project-card ${activeProject?.id === project.id ? "is-active" : ""}`;
     card.tabIndex = 0;
     card.setAttribute("role", "button");
-    card.setAttribute("aria-pressed", String(activeProject.id === project.id));
+    card.setAttribute("aria-pressed", String(activeProject?.id === project.id));
     card.innerHTML = `
+      ${getThumbnailMarkup(project)}
       <div class="project-top">
         <div>
           <p class="project-tag">${audienceLabel(project.audience)}</p>
           <h3>${localize(project.title)}</h3>
         </div>
-        <span class="project-year">${t("cards.yearPrefix")} ${project.year}</span>
+        <div class="project-badges">
+          <span class="status-badge ${project.status || "live"}">${statusLabel(project.status || "live")}</span>
+          <span class="project-year">${t("cards.yearPrefix")} ${project.year}</span>
+        </div>
       </div>
       <div class="project-body">
         <p>${localize(project.shortDescription)}</p>
@@ -435,41 +684,37 @@ function renderProjects() {
       <div class="project-meta">
         ${getCompactStack(project).map((item) => `<span>${item}</span>`).join("")}
       </div>
-      <div class="project-footer">
-        <div class="project-actions">
-          <button class="secondary-button preview-trigger" type="button">${t("cards.preview")}</button>
-          <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("cards.open")}</a>
-        </div>
-      </div>
     `;
 
-    const handler = () => activateProject(project);
-    card.addEventListener("mouseenter", handler);
-    card.addEventListener("focus", handler);
+    const handler = () => {
+      activateProject(project);
+      scrollPreviewIntoView();
+    };
     card.addEventListener("click", handler);
     card.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         handler();
-        scrollPreviewIntoView();
       }
-    });
-
-    card.querySelector(".preview-trigger").addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      activateProject(project);
-      scrollPreviewIntoView();
-    });
-
-    card.querySelector(".project-link").addEventListener("click", (event) => {
-      event.stopPropagation();
     });
 
     projectsGrid.appendChild(card);
   });
 
-  renderPreview(activeProject);
+  if (activeProject) {
+    renderPreview(activeProject);
+    document.querySelector(".preview-column")?.classList.add("is-visible");
+    return;
+  }
+
+  previewContent.innerHTML = `
+    <div class="preview-empty">
+      <p class="section-label">${t("preview.emptyLabel")}</p>
+      <h3>${t("preview.emptyTitle")}</h3>
+      <p>${t("preview.emptyBody")}</p>
+    </div>
+  `;
+  document.querySelector(".preview-column")?.classList.remove("is-visible");
 }
 
 function renderPreview(project) {
@@ -478,6 +723,7 @@ function renderPreview(project) {
       <div class="preview-meta">
         <p class="section-label">${audienceLabel(project.audience)}</p>
         <h3>${localize(project.title)}</h3>
+        <span class="status-badge ${project.status || "live"}">${statusLabel(project.status || "live")}</span>
         <p>${localize(project.shortDescription)}</p>
         <div class="preview-tags">
           ${localize(project.highlights).map((item) => `<span>${item}</span>`).join("")}
@@ -491,6 +737,14 @@ function renderPreview(project) {
             <p class="preview-label">${t("preview.stackLabel")}</p>
             <p>${project.stack.join(" • ")}</p>
           </div>
+          <div>
+            <p class="preview-label">${t("detail.featuredSkill")}</p>
+            <p>${project.featuredSkill || project.stack[0]}</p>
+          </div>
+          <div>
+            <p class="preview-label">${t("detail.lesson")}</p>
+            <p>${localize(project.lesson)}</p>
+          </div>
         </div>
         <p>
           <strong>${t("preview.goalLabel")}:</strong> ${localize(project.goal)}<br />
@@ -500,6 +754,7 @@ function renderPreview(project) {
         <div class="preview-actions">
           <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("preview.openSite")}</a>
           <button class="secondary-button" id="copy-link-button" type="button">${t("preview.copyLink")}</button>
+          <button class="secondary-button" id="detail-button" type="button">${t("preview.details")}</button>
         </div>
       </div>
       <div class="preview-frame-wrap">
@@ -541,6 +796,137 @@ function renderPreview(project) {
   copyButton.addEventListener("click", () => {
     copyProjectUrl(project.url, copyButton);
   });
+
+  previewContent.querySelector("#detail-button").addEventListener("click", () => {
+    openProjectDetail(project);
+  });
+}
+
+function getDetailMarkup(project, mode = "detail") {
+  const hasSourceUrl = project.sourceUrl && String(project.sourceUrl).startsWith("http");
+  const sourceMarkup = hasSourceUrl
+    ? `<a class="project-link" href="${project.sourceUrl}" target="_blank" rel="noreferrer">${t("preview.source")}</a>`
+    : "";
+
+  return `
+    <div class="detail-layout ${mode === "presentation" ? "is-presentation" : ""}">
+      <div>
+        <p class="section-label">${mode === "presentation" ? t("detail.presentation") : audienceLabel(project.audience)}</p>
+        <h2>${localize(project.title)}</h2>
+        <p>${localize(project.shortDescription)}</p>
+        <div class="preview-tags">
+          ${localize(project.highlights).map((item) => `<span>${item}</span>`).join("")}
+        </div>
+      </div>
+      <div class="detail-visual">
+        ${getThumbnailMarkup(project)}
+      </div>
+      <div class="detail-grid">
+        <article>
+          <p class="preview-label">${t("detail.problem")}</p>
+          <p>${localize(project.problem)}</p>
+        </article>
+        <article>
+          <p class="preview-label">${t("detail.outcome")}</p>
+          <p>${localize(project.outcome)}</p>
+        </article>
+        <article>
+          <p class="preview-label">${t("detail.lesson")}</p>
+          <p>${localize(project.lesson)}</p>
+        </article>
+        <article>
+          <p class="preview-label">${t("preview.stackLabel")}</p>
+          <p>${project.stack.join(" • ")}</p>
+        </article>
+      </div>
+      <div class="preview-actions">
+        <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("preview.openSite")}</a>
+        ${sourceMarkup}
+      </div>
+    </div>
+  `;
+}
+
+function openProjectDetail(project) {
+  state.activeProjectId = project.id;
+  dialogContent.innerHTML = getDetailMarkup(project);
+  if (!projectDialog.open) {
+    projectDialog.showModal();
+  }
+  history.replaceState(null, "", `#project/${project.id}`);
+}
+
+function closeProjectDetail() {
+  if (projectDialog.open) {
+    projectDialog.close();
+  }
+
+  if (location.hash.startsWith("#project/")) {
+    history.replaceState(null, "", "#projects");
+  }
+}
+
+function renderPresentation(project) {
+  state.presentationIndex = getProjectIndex(project.id);
+  dialogContent.innerHTML = `
+    ${getDetailMarkup(project, "presentation")}
+    <div class="presentation-controls">
+      <button class="secondary-button" id="presentation-prev" type="button">${t("detail.previous")}</button>
+      <span>${state.presentationIndex + 1} / ${projects.length}</span>
+      <button class="secondary-button" id="presentation-next" type="button">${t("detail.next")}</button>
+    </div>
+  `;
+
+  dialogContent.querySelector("#presentation-prev").addEventListener("click", () => {
+    const nextIndex = (state.presentationIndex - 1 + projects.length) % projects.length;
+    renderPresentation(projects[nextIndex]);
+  });
+
+  dialogContent.querySelector("#presentation-next").addEventListener("click", () => {
+    const nextIndex = (state.presentationIndex + 1) % projects.length;
+    renderPresentation(projects[nextIndex]);
+  });
+}
+
+function openPresentation() {
+  const project = projects[getProjectIndex(state.activeProjectId) >= 0 ? getProjectIndex(state.activeProjectId) : 0];
+  renderPresentation(project);
+  if (!projectDialog.open) {
+    projectDialog.showModal();
+  }
+}
+
+function renderTimeline() {
+  const byYear = projects.reduce((groups, project) => {
+    groups[project.year] = groups[project.year] || [];
+    groups[project.year].push(project);
+    return groups;
+  }, {});
+
+  timelineList.innerHTML = Object.entries(byYear)
+    .sort(([left], [right]) => Number(right) - Number(left))
+    .map(([year, yearProjects]) => `
+      <article class="timeline-year">
+        <span>${year}</span>
+        <div>
+          ${yearProjects.map((project) => `
+            <button class="timeline-item" type="button" data-project-id="${project.id}">
+              <strong>${localize(project.title)}</strong>
+              <small>${project.featuredSkill || project.stack[0]} • ${statusLabel(project.status || "live")}</small>
+              <p>${localize(project.lesson)}</p>
+            </button>
+          `).join("")}
+        </div>
+      </article>
+    `)
+    .join("");
+
+  timelineList.querySelectorAll("[data-project-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const project = projects.find((item) => item.id === button.dataset.projectId);
+      openProjectDetail(project);
+    });
+  });
 }
 
 function setLanguage(language) {
@@ -548,7 +934,9 @@ function setLanguage(language) {
   localStorage.setItem("funfam-language", language);
   applyStaticTranslations();
   renderFilters();
+  renderAdvancedFilters();
   renderProjects();
+  renderTimeline();
 }
 
 languageButtons.forEach((button) => {
@@ -564,9 +952,52 @@ searchInput.addEventListener("input", (event) => {
   renderProjects();
 });
 
+filterToggle.addEventListener("click", toggleFilters);
+menuToggle.addEventListener("click", () => {
+  state.navOpen = !state.navOpen;
+  updateMenuToggle();
+});
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    setActiveNav(link.dataset.navLink);
+    closeMobileMenu();
+  });
+});
 clearFiltersButton.addEventListener("click", resetFilters);
+dialogClose.addEventListener("click", closeProjectDetail);
+projectDialog.addEventListener("click", (event) => {
+  if (event.target === projectDialog) {
+    closeProjectDetail();
+  }
+});
+presentationStart.addEventListener("click", openPresentation);
+previewClose.addEventListener("click", hidePreview);
+previewMinimize.addEventListener("click", hidePreview);
+previewMaximize.addEventListener("click", maximizePreview);
+window.addEventListener("hashchange", () => {
+  if (!location.hash.startsWith("#project/")) {
+    return;
+  }
+
+  const project = projects.find((item) => item.id === location.hash.replace("#project/", ""));
+  if (project) {
+    openProjectDetail(project);
+  }
+});
 
 setStats();
 applyStaticTranslations();
+updateMenuToggle();
 renderFilters();
+renderAdvancedFilters();
 renderProjects();
+renderTimeline();
+setActiveNav(location.hash.replace("#", "") || "projects");
+observeSections();
+
+if (location.hash.startsWith("#project/")) {
+  const project = projects.find((item) => item.id === location.hash.replace("#project/", ""));
+  if (project) {
+    openProjectDetail(project);
+  }
+}

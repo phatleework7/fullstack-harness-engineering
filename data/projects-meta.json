@@ -18,7 +18,22 @@
       "vi": ["vuon hoa 3D", "loi nhan bi mat", "nhac nen"],
       "en": ["3D rose garden", "secret message", "background music"]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Three.js", "Netlify"]
+    "stack": ["HTML", "CSS", "JavaScript", "Three.js", "Netlify"],
+    "status": "live",
+    "featuredSkill": "Three.js",
+    "thumbnailTone": "rose",
+    "problem": {
+      "vi": "Can bien mot loi chuc 20/10 thanh trai nghiem co cam giac rieng tu, lang man va khong giong mot trang thiep tinh.",
+      "en": "Turn a 20/10 greeting into a private, romantic experience instead of a plain greeting card."
+    },
+    "outcome": {
+      "vi": "Mot microsite co vuon hoa 3D, loi nhan an va am thanh nen, de nguoi nhan mo link va trai nghiem nhu mot mon qua.",
+      "en": "A microsite with a 3D rose garden, hidden note, and background music that feels like opening a digital gift."
+    },
+    "lesson": {
+      "vi": "Hoc cach dung Three.js cho cam xuc: giu canh don gian, co diem nhan, va de interaction phuc vu cau chuyen.",
+      "en": "Use Three.js emotionally: keep the scene simple, focused, and let interaction serve the story."
+    }
   },
   {
     "id": "valentine26-for-sakna",
@@ -39,7 +54,22 @@
       "vi": ["game lat the", "modal chien thang", "loi chuc tinh cam"],
       "en": ["memory card game", "victory modal", "romantic message"]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Netlify"]
+    "stack": ["HTML", "CSS", "JavaScript", "Netlify"],
+    "status": "live",
+    "featuredSkill": "Game logic",
+    "thumbnailTone": "rose",
+    "problem": {
+      "vi": "Muon gui loi chuc Valentine theo cach vui hon viec doc mot doan tin nhan truc tiep.",
+      "en": "Make a Valentine message more playful than simply reading a direct note."
+    },
+    "outcome": {
+      "vi": "Mot mini game lat the co trang thai thang, modal loi chuc va nhac nen de gui bang link.",
+      "en": "A shareable memory-card mini game with a win state, greeting modal, and background music."
+    },
+    "lesson": {
+      "vi": "Ren tu duy state UI: card da lat, cap da match, chien thang va flow phan hoi cho nguoi choi.",
+      "en": "Practice UI state thinking: flipped cards, matched pairs, victory state, and player feedback."
+    }
   },
   {
     "id": "merry-christmas-sakna",
@@ -60,7 +90,22 @@
       "vi": ["dieu khien bang tay", "khung canh 3D", "anh ky niem xoay quanh"],
       "en": ["gesture control", "3D Christmas scene", "orbiting memory photos"]
     },
-    "stack": ["HTML", "JavaScript", "Three.js", "MediaPipe Hands", "Netlify"]
+    "stack": ["HTML", "JavaScript", "Three.js", "MediaPipe Hands", "Netlify"],
+    "status": "live",
+    "featuredSkill": "MediaPipe Hands",
+    "thumbnailTone": "mint",
+    "problem": {
+      "vi": "Muon lam mot trang Giang sinh co tuong tac that su, khong chi la hieu ung tuyet va loi chuc.",
+      "en": "Create a Christmas page with real interaction, not only snow effects and greeting text."
+    },
+    "outcome": {
+      "vi": "Trai nghiem co 3D, am thanh, anh ky niem va nhan dien cu chi tay qua camera.",
+      "en": "An experience combining 3D, audio, memory photos, and camera-based hand gesture detection."
+    },
+    "lesson": {
+      "vi": "Hoc cach ket hop Web APIs, computer vision va 3D ma van can fallback trai nghiem de nguoi dung khong bi lac.",
+      "en": "Combine Web APIs, computer vision, and 3D while keeping the experience understandable for users."
+    }
   },
   {
     "id": "happy-birthday-aunt-utthuy",
@@ -81,7 +126,22 @@
       "vi": ["hero slider", "gallery ky niem", "loi chuc sinh nhat"],
       "en": ["hero slider", "memory gallery", "birthday wishes"]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Responsive UI", "Netlify"]
+    "stack": ["HTML", "CSS", "JavaScript", "Responsive UI", "Netlify"],
+    "status": "live",
+    "featuredSkill": "Responsive UI",
+    "thumbnailTone": "warm",
+    "problem": {
+      "vi": "Can mot trang sinh nhat gia dinh trang nha, am ap va de xem tren dien thoai.",
+      "en": "Build an elegant family birthday page that feels warm and works well on phones."
+    },
+    "outcome": {
+      "vi": "Trang chuc mung co slider, gallery, loi chuc va nhac nen voi cam giac nhu mot album ky niem.",
+      "en": "A birthday site with slider, gallery, wishes, and music that feels like a memory album."
+    },
+    "lesson": {
+      "vi": "Hoc cach uu tien nhan vat va ky niem: UI nen lui lai de anh va loi chuc noi chuyen.",
+      "en": "Prioritize the person and memories: let the UI step back so photos and wishes can speak."
+    }
   },
   {
     "id": "thien-y",
@@ -102,7 +162,22 @@
       "vi": ["trang gioi thieu quan", "thuc don", "uu dai va lien he"],
       "en": ["restaurant landing page", "menu section", "promotions and contact"]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Responsive UI", "Vercel"]
+    "stack": ["HTML", "CSS", "JavaScript", "Responsive UI", "Vercel"],
+    "status": "live",
+    "featuredSkill": "Business landing page",
+    "thumbnailTone": "mint",
+    "problem": {
+      "vi": "Can website kinh doanh gon gang cho quan an chay, giup khach nhanh chong hieu quan va tim thong tin lien he.",
+      "en": "Create a focused restaurant landing page that helps customers quickly understand the business and contact it."
+    },
+    "outcome": {
+      "vi": "Landing page co cau chuyen thuong hieu, menu, uu dai, thong tin lien he va ban do.",
+      "en": "A landing page with brand story, menu, promotions, contact information, and map directions."
+    },
+    "lesson": {
+      "vi": "Hoc cach viet UI phuc vu conversion: noi dung ro, CTA de thay va thong tin thuc dung dat dung cho.",
+      "en": "Practice conversion-minded UI: clear content, visible calls to action, and practical information in the right place."
+    }
   },
   {
     "id": "martinle",
@@ -123,6 +198,21 @@
       "vi": ["thuong hieu ca nhan", "gioi thieu du an", "contact va social links"],
       "en": ["personal branding", "project showcase", "contact and social links"]
     },
-    "stack": ["Next.js", "React", "JavaScript", "Portfolio UI", "Vercel"]
+    "stack": ["Next.js", "React", "JavaScript", "Portfolio UI", "Vercel"],
+    "status": "live",
+    "featuredSkill": "Portfolio positioning",
+    "thumbnailTone": "warm",
+    "problem": {
+      "vi": "Can mot diem cham chuyen nghiep de gioi thieu ban than, nang luc va cac project da lam.",
+      "en": "Create a professional touchpoint for profile, capabilities, and shipped projects."
+    },
+    "outcome": {
+      "vi": "Portfolio ca nhan co positioning full-stack, khu vuc project va lien ket lien he.",
+      "en": "A personal portfolio with full-stack positioning, project showcase, and contact links."
+    },
+    "lesson": {
+      "vi": "Hoc cach chuyen project ca nhan thanh cau chuyen nghe nghiep ma nguoi xem co the nam bat nhanh.",
+      "en": "Learn to turn personal projects into a professional story that viewers can understand quickly."
+    }
   }
 ]

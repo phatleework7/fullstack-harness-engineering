@@ -32,6 +32,18 @@ function fallbackDescriptions(platformName) {
       vi: ["dong bo tu dong", platformName, "can bo sung metadata"],
       en: ["automatic sync", platformName, "metadata pending"],
     },
+    problem: {
+      vi: "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
+      en: "This newly synced hosting project does not have a dedicated case study yet.",
+    },
+    outcome: {
+      vi: "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      en: "Added to the hub for tracking and later enrichment.",
+    },
+    lesson: {
+      vi: "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      en: "Keep an automated sync workflow between hosting and the portfolio.",
+    },
   };
 }
 
@@ -57,6 +69,14 @@ function mergeProject(generatedProject, metaProject) {
     goal: metaProject?.goal || fallback.goal,
     stack,
     highlights: metaProject?.highlights || fallback.highlights,
+    status: metaProject?.status || (metaProject ? "live" : "needs-metadata"),
+    platform: generatedProject.platform,
+    sourceUrl: metaProject?.sourceUrl || generatedProject.repo || null,
+    problem: metaProject?.problem || fallback.problem,
+    outcome: metaProject?.outcome || fallback.outcome,
+    lesson: metaProject?.lesson || fallback.lesson,
+    featuredSkill: metaProject?.featuredSkill || stack[0] || platformName,
+    thumbnailTone: metaProject?.thumbnailTone || "warm",
   };
 }
 

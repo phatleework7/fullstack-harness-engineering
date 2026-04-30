@@ -33,7 +33,24 @@ const projects = [
         "victory modal",
         "romantic message"
       ]
-    }
+    },
+    "status": "live",
+    "platform": "netlify",
+    "sourceUrl": "https://github.com/phatleework7/valentine",
+    "problem": {
+      "vi": "Muon gui loi chuc Valentine theo cach vui hon viec doc mot doan tin nhan truc tiep.",
+      "en": "Make a Valentine message more playful than simply reading a direct note."
+    },
+    "outcome": {
+      "vi": "Mot mini game lat the co trang thai thang, modal loi chuc va nhac nen de gui bang link.",
+      "en": "A shareable memory-card mini game with a win state, greeting modal, and background music."
+    },
+    "lesson": {
+      "vi": "Ren tu duy state UI: card da lat, cap da match, chien thang va flow phan hoi cho nguoi choi.",
+      "en": "Practice UI state thinking: flipped cards, matched pairs, victory state, and player feedback."
+    },
+    "featuredSkill": "Game logic",
+    "thumbnailTone": "rose"
   },
   {
     "id": "merry-christmas-sakna",
@@ -70,7 +87,24 @@ const projects = [
         "3D Christmas scene",
         "orbiting memory photos"
       ]
-    }
+    },
+    "status": "live",
+    "platform": "netlify",
+    "sourceUrl": "https://github.com/phatleework7/merry-christmas",
+    "problem": {
+      "vi": "Muon lam mot trang Giang sinh co tuong tac that su, khong chi la hieu ung tuyet va loi chuc.",
+      "en": "Create a Christmas page with real interaction, not only snow effects and greeting text."
+    },
+    "outcome": {
+      "vi": "Trai nghiem co 3D, am thanh, anh ky niem va nhan dien cu chi tay qua camera.",
+      "en": "An experience combining 3D, audio, memory photos, and camera-based hand gesture detection."
+    },
+    "lesson": {
+      "vi": "Hoc cach ket hop Web APIs, computer vision va 3D ma van can fallback trai nghiem de nguoi dung khong bi lac.",
+      "en": "Combine Web APIs, computer vision, and 3D while keeping the experience understandable for users."
+    },
+    "featuredSkill": "MediaPipe Hands",
+    "thumbnailTone": "mint"
   },
   {
     "id": "thien-y",
@@ -107,7 +141,24 @@ const projects = [
         "menu section",
         "promotions and contact"
       ]
-    }
+    },
+    "status": "live",
+    "platform": "vercel",
+    "sourceUrl": "Thien_y",
+    "problem": {
+      "vi": "Can website kinh doanh gon gang cho quan an chay, giup khach nhanh chong hieu quan va tim thong tin lien he.",
+      "en": "Create a focused restaurant landing page that helps customers quickly understand the business and contact it."
+    },
+    "outcome": {
+      "vi": "Landing page co cau chuyen thuong hieu, menu, uu dai, thong tin lien he va ban do.",
+      "en": "A landing page with brand story, menu, promotions, contact information, and map directions."
+    },
+    "lesson": {
+      "vi": "Hoc cach viet UI phuc vu conversion: noi dung ro, CTA de thay va thong tin thuc dung dat dung cho.",
+      "en": "Practice conversion-minded UI: clear content, visible calls to action, and practical information in the right place."
+    },
+    "featuredSkill": "Business landing page",
+    "thumbnailTone": "mint"
   },
   {
     "id": "roseforvy",
@@ -144,7 +195,24 @@ const projects = [
         "secret message",
         "background music"
       ]
-    }
+    },
+    "status": "live",
+    "platform": "netlify",
+    "sourceUrl": "https://github.com/phatleework7/vn_women_day",
+    "problem": {
+      "vi": "Can bien mot loi chuc 20/10 thanh trai nghiem co cam giac rieng tu, lang man va khong giong mot trang thiep tinh.",
+      "en": "Turn a 20/10 greeting into a private, romantic experience instead of a plain greeting card."
+    },
+    "outcome": {
+      "vi": "Mot microsite co vuon hoa 3D, loi nhan an va am thanh nen, de nguoi nhan mo link va trai nghiem nhu mot mon qua.",
+      "en": "A microsite with a 3D rose garden, hidden note, and background music that feels like opening a digital gift."
+    },
+    "lesson": {
+      "vi": "Hoc cach dung Three.js cho cam xuc: giu canh don gian, co diem nhan, va de interaction phuc vu cau chuyen.",
+      "en": "Use Three.js emotionally: keep the scene simple, focused, and let interaction serve the story."
+    },
+    "featuredSkill": "Three.js",
+    "thumbnailTone": "rose"
   },
   {
     "id": "happy-birthday-aunt-utthuy",
@@ -181,7 +249,24 @@ const projects = [
         "memory gallery",
         "birthday wishes"
       ]
-    }
+    },
+    "status": "live",
+    "platform": "netlify",
+    "sourceUrl": "https://github.com/phatleework7/happy_birthday_UTTHUY",
+    "problem": {
+      "vi": "Can mot trang sinh nhat gia dinh trang nha, am ap va de xem tren dien thoai.",
+      "en": "Build an elegant family birthday page that feels warm and works well on phones."
+    },
+    "outcome": {
+      "vi": "Trang chuc mung co slider, gallery, loi chuc va nhac nen voi cam giac nhu mot album ky niem.",
+      "en": "A birthday site with slider, gallery, wishes, and music that feels like a memory album."
+    },
+    "lesson": {
+      "vi": "Hoc cach uu tien nhan vat va ky niem: UI nen lui lai de anh va loi chuc noi chuyen.",
+      "en": "Prioritize the person and memories: let the UI step back so photos and wishes can speak."
+    },
+    "featuredSkill": "Responsive UI",
+    "thumbnailTone": "warm"
   },
   {
     "id": "phatleework7-github-io",
@@ -215,7 +300,24 @@ const projects = [
         "Vercel",
         "metadata pending"
       ]
-    }
+    },
+    "status": "needs-metadata",
+    "platform": "vercel",
+    "sourceUrl": "phatleework7.github.io",
+    "problem": {
+      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
+      "en": "This newly synced hosting project does not have a dedicated case study yet."
+    },
+    "outcome": {
+      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      "en": "Added to the hub for tracking and later enrichment."
+    },
+    "lesson": {
+      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      "en": "Keep an automated sync workflow between hosting and the portfolio."
+    },
+    "featuredSkill": "nextjs",
+    "thumbnailTone": "warm"
   },
   {
     "id": "venerable-liger-871bb0",
@@ -248,6 +350,23 @@ const projects = [
         "Netlify",
         "metadata pending"
       ]
-    }
+    },
+    "status": "needs-metadata",
+    "platform": "netlify",
+    "sourceUrl": "https://github.com/phatleework7/sui-move-blog",
+    "problem": {
+      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
+      "en": "This newly synced hosting project does not have a dedicated case study yet."
+    },
+    "outcome": {
+      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      "en": "Added to the hub for tracking and later enrichment."
+    },
+    "lesson": {
+      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      "en": "Keep an automated sync workflow between hosting and the portfolio."
+    },
+    "featuredSkill": "Netlify",
+    "thumbnailTone": "warm"
   }
 ];
