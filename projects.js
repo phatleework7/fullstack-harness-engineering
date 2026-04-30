@@ -9,11 +9,11 @@ const projects = [
     "year": "2026",
     "url": "https://valentine26-for-sakna.netlify.app",
     "shortDescription": {
-      "vi": "Game lat the Valentine voi thong diep tinh yeu, modal chien thang va nhac nen de gui bang link.",
+      "vi": "Game lật thẻ Valentine với thông điệp tình yêu, modal chiến thắng và nhạc nền để gửi bằng link.",
       "en": "A Valentine memory card game with a romantic message, victory modal, and background music designed for sharing by link."
     },
     "goal": {
-      "vi": "Bien loi chuc Valentine thanh mot mini game nho de nguoi nhan vua choi vua doc duoc thong diep tinh cam.",
+      "vi": "Biến lời chúc Valentine thành một mini game nhỏ để người nhận vừa chơi vừa đọc được thông điệp tình cảm.",
       "en": "Turn a Valentine greeting into a tiny game so the receiver can play and discover the romantic message naturally."
     },
     "stack": [
@@ -24,9 +24,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "game lat the",
-        "modal chien thang",
-        "loi chuc tinh cam"
+        "game lật thẻ",
+        "modal chiến thắng",
+        "lời chúc tình cảm"
       ],
       "en": [
         "memory card game",
@@ -38,15 +38,15 @@ const projects = [
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/valentine",
     "problem": {
-      "vi": "Muon gui loi chuc Valentine theo cach vui hon viec doc mot doan tin nhan truc tiep.",
+      "vi": "Muốn gửi lời chúc Valentine theo cách vui hơn việc đọc một đoạn tin nhắn trực tiếp.",
       "en": "Make a Valentine message more playful than simply reading a direct note."
     },
     "outcome": {
-      "vi": "Mot mini game lat the co trang thai thang, modal loi chuc va nhac nen de gui bang link.",
+      "vi": "Một mini game lật thẻ có trạng thái thắng, modal lời chúc và nhạc nền để gửi bằng link.",
       "en": "A shareable memory-card mini game with a win state, greeting modal, and background music."
     },
     "lesson": {
-      "vi": "Ren tu duy state UI: card da lat, cap da match, chien thang va flow phan hoi cho nguoi choi.",
+      "vi": "Rèn tư duy state UI: card đã lật, cặp đã match, chiến thắng và flow phản hồi cho người chơi.",
       "en": "Practice UI state thinking: flipped cards, matched pairs, victory state, and player feedback."
     },
     "featuredSkill": "Game logic",
@@ -62,11 +62,11 @@ const projects = [
     "year": "2025",
     "url": "https://merry-christmas-sakna.netlify.app",
     "shortDescription": {
-      "vi": "Christmas experience tuong tac voi hieu ung 3D, nhan dien cu chi tay, anh ky niem va am thanh le hoi.",
+      "vi": "Christmas experience tương tác với hiệu ứng 3D, nhận diện cử chỉ tay, ảnh kỷ niệm và âm thanh lễ hội.",
       "en": "An interactive Christmas experience with 3D effects, hand gesture detection, memory photos, and festive audio."
     },
     "goal": {
-      "vi": "Tao mot trai nghiem Giang sinh doc dao, khong chi xem ma con cho phep tuong tac bang camera va hand gesture.",
+      "vi": "Tạo một trải nghiệm Giáng sinh độc đáo, không chỉ xem mà còn cho phép tương tác bằng camera và hand gesture.",
       "en": "Build a distinctive Christmas experience that goes beyond viewing by letting the user interact through camera-based hand gestures."
     },
     "stack": [
@@ -78,9 +78,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "dieu khien bang tay",
-        "khung canh 3D",
-        "anh ky niem xoay quanh"
+        "điều khiển bằng tay",
+        "khung cảnh 3D",
+        "ảnh kỷ niệm xoay quanh"
       ],
       "en": [
         "gesture control",
@@ -92,15 +92,15 @@ const projects = [
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/merry-christmas",
     "problem": {
-      "vi": "Muon lam mot trang Giang sinh co tuong tac that su, khong chi la hieu ung tuyet va loi chuc.",
+      "vi": "Muốn làm một trang Giáng sinh có tương tác thật sự, không chỉ là hiệu ứng tuyết và lời chúc.",
       "en": "Create a Christmas page with real interaction, not only snow effects and greeting text."
     },
     "outcome": {
-      "vi": "Trai nghiem co 3D, am thanh, anh ky niem va nhan dien cu chi tay qua camera.",
+      "vi": "Trải nghiệm có 3D, âm thanh, ảnh kỷ niệm và nhận diện cử chỉ tay qua camera.",
       "en": "An experience combining 3D, audio, memory photos, and camera-based hand gesture detection."
     },
     "lesson": {
-      "vi": "Hoc cach ket hop Web APIs, computer vision va 3D ma van can fallback trai nghiem de nguoi dung khong bi lac.",
+      "vi": "Học cách kết hợp Web APIs, computer vision và 3D mà vẫn cần fallback trải nghiệm để người dùng không bị lạc.",
       "en": "Combine Web APIs, computer vision, and 3D while keeping the experience understandable for users."
     },
     "featuredSkill": "MediaPipe Hands",
@@ -109,18 +109,18 @@ const projects = [
   {
     "id": "thien-y",
     "title": {
-      "vi": "Thien Y",
+      "vi": "Thiên Ý",
       "en": "Thien Y"
     },
     "audience": "personal",
     "year": "2025",
     "url": "https://thien-y.vercel.app",
     "shortDescription": {
-      "vi": "Landing page cho quan an chay Thien Y voi gioi thieu thuong hieu, thuc don, uu dai, lien he va ban do.",
+      "vi": "Landing page cho quán ăn chay Thiên Ý với giới thiệu thương hiệu, thực đơn, ưu đãi, liên hệ và bản đồ.",
       "en": "A landing page for Thien Y vegetarian restaurant featuring brand story, menu, promotions, contact details, and map directions."
     },
     "goal": {
-      "vi": "Xay dung website kinh doanh gon gang de gioi thieu quan, tang do tin cay va giup khach hang de dang lien he hoac tim duong.",
+      "vi": "Xây dựng website kinh doanh gọn gàng để giới thiệu quán, tăng độ tin cậy và giúp khách hàng dễ dàng liên hệ hoặc tìm đường.",
       "en": "Build a clean business website that introduces the restaurant, improves trust, and makes it easy for customers to contact or find the place."
     },
     "stack": [
@@ -132,9 +132,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "trang gioi thieu quan",
-        "thuc don",
-        "uu dai va lien he"
+        "trang giới thiệu quán",
+        "thực đơn",
+        "ưu đãi và liên hệ"
       ],
       "en": [
         "restaurant landing page",
@@ -146,15 +146,15 @@ const projects = [
     "platform": "vercel",
     "sourceUrl": "Thien_y",
     "problem": {
-      "vi": "Can website kinh doanh gon gang cho quan an chay, giup khach nhanh chong hieu quan va tim thong tin lien he.",
+      "vi": "Cần website kinh doanh gọn gàng cho quán ăn chay, giúp khách nhanh chóng hiểu quán và tìm thông tin liên hệ.",
       "en": "Create a focused restaurant landing page that helps customers quickly understand the business and contact it."
     },
     "outcome": {
-      "vi": "Landing page co cau chuyen thuong hieu, menu, uu dai, thong tin lien he va ban do.",
+      "vi": "Landing page có câu chuyện thương hiệu, menu, ưu đãi, thông tin liên hệ và bản đồ.",
       "en": "A landing page with brand story, menu, promotions, contact information, and map directions."
     },
     "lesson": {
-      "vi": "Hoc cach viet UI phuc vu conversion: noi dung ro, CTA de thay va thong tin thuc dung dat dung cho.",
+      "vi": "Học cách viết UI phục vụ conversion: nội dung rõ, CTA dễ thấy và thông tin thực dụng đặt đúng chỗ.",
       "en": "Practice conversion-minded UI: clear content, visible calls to action, and practical information in the right place."
     },
     "featuredSkill": "Business landing page",
@@ -170,11 +170,11 @@ const projects = [
     "year": "2025",
     "url": "https://roseforvy.netlify.app",
     "shortDescription": {
-      "vi": "Microsite 20/10 tang Lam Thanh Vy voi vuon hoa hong 3D, loi nhan an va nhac nen lang man.",
+      "vi": "Microsite 20/10 tặng Lâm Thanh Vy với vườn hoa hồng 3D, lời nhắn ẩn và nhạc nền lãng mạn.",
       "en": "A 20/10 microsite for Lam Thanh Vy featuring a 3D rose garden, a hidden note, and romantic background music."
     },
     "goal": {
-      "vi": "Tao mot mon qua digital bat ngo, co tinh tuong tac va truyen tai loi chuc mot cach mem mai.",
+      "vi": "Tạo một món quà digital bất ngờ, có tính tương tác và truyền tải lời chúc một cách mềm mại.",
       "en": "Create a surprising digital gift that feels interactive and delivers a heartfelt message in a soft, memorable way."
     },
     "stack": [
@@ -186,9 +186,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "vuon hoa 3D",
-        "loi nhan bi mat",
-        "nhac nen"
+        "vườn hoa 3D",
+        "lời nhắn bí mật",
+        "nhạc nền"
       ],
       "en": [
         "3D rose garden",
@@ -200,15 +200,15 @@ const projects = [
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/vn_women_day",
     "problem": {
-      "vi": "Can bien mot loi chuc 20/10 thanh trai nghiem co cam giac rieng tu, lang man va khong giong mot trang thiep tinh.",
+      "vi": "Cần biến một lời chúc 20/10 thành trải nghiệm có cảm giác riêng tư, lãng mạn và không giống một trang thiệp tĩnh.",
       "en": "Turn a 20/10 greeting into a private, romantic experience instead of a plain greeting card."
     },
     "outcome": {
-      "vi": "Mot microsite co vuon hoa 3D, loi nhan an va am thanh nen, de nguoi nhan mo link va trai nghiem nhu mot mon qua.",
+      "vi": "Một microsite có vườn hoa 3D, lời nhắn ẩn và âm thanh nền, để người nhận mở link và trải nghiệm như một món quà.",
       "en": "A microsite with a 3D rose garden, hidden note, and background music that feels like opening a digital gift."
     },
     "lesson": {
-      "vi": "Hoc cach dung Three.js cho cam xuc: giu canh don gian, co diem nhan, va de interaction phuc vu cau chuyen.",
+      "vi": "Học cách dùng Three.js cho cảm xúc: giữ cảnh đơn giản, có điểm nhấn, và để interaction phục vụ câu chuyện.",
       "en": "Use Three.js emotionally: keep the scene simple, focused, and let interaction serve the story."
     },
     "featuredSkill": "Three.js",
@@ -217,18 +217,18 @@ const projects = [
   {
     "id": "happy-birthday-aunt-utthuy",
     "title": {
-      "vi": "Happy Birthday Aunt Ut Thuy",
+      "vi": "Happy Birthday Aunt Út Thủy",
       "en": "Happy Birthday Aunt Ut Thuy"
     },
     "audience": "family",
     "year": "2025",
     "url": "https://happy-birthday-aunt-utthuy.netlify.app",
     "shortDescription": {
-      "vi": "Trang chuc mung sinh nhat trang nha cho Ut Thuy voi hero slider, gallery ky niem, loi chuc va nhac nen.",
+      "vi": "Trang chúc mừng sinh nhật trang nhã cho Út Thủy với hero slider, gallery kỷ niệm, lời chúc và nhạc nền.",
       "en": "An elegant birthday website for Ut Thuy with a hero slider, memory gallery, warm wishes, and background music."
     },
     "goal": {
-      "vi": "Lam mot trang chuc mung gia dinh co cam giac am ap va chi chu, de nguoi nhan cam thay duoc su tran trong.",
+      "vi": "Làm một trang chúc mừng gia đình có cảm giác ấm áp và chỉn chu, để người nhận cảm thấy được sự trân trọng.",
       "en": "Create a family birthday page that feels warm and thoughtful so the recipient can sense genuine care and respect."
     },
     "stack": [
@@ -241,8 +241,8 @@ const projects = [
     "highlights": {
       "vi": [
         "hero slider",
-        "gallery ky niem",
-        "loi chuc sinh nhat"
+        "gallery kỷ niệm",
+        "lời chúc sinh nhật"
       ],
       "en": [
         "hero slider",
@@ -254,15 +254,15 @@ const projects = [
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/happy_birthday_UTTHUY",
     "problem": {
-      "vi": "Can mot trang sinh nhat gia dinh trang nha, am ap va de xem tren dien thoai.",
+      "vi": "Cần một trang sinh nhật gia đình trang nhã, ấm áp và dễ xem trên điện thoại.",
       "en": "Build an elegant family birthday page that feels warm and works well on phones."
     },
     "outcome": {
-      "vi": "Trang chuc mung co slider, gallery, loi chuc va nhac nen voi cam giac nhu mot album ky niem.",
+      "vi": "Trang chúc mừng có slider, gallery, lời chúc và nhạc nền với cảm giác như một album kỷ niệm.",
       "en": "A birthday site with slider, gallery, wishes, and music that feels like a memory album."
     },
     "lesson": {
-      "vi": "Hoc cach uu tien nhan vat va ky niem: UI nen lui lai de anh va loi chuc noi chuyen.",
+      "vi": "Học cách ưu tiên nhân vật và kỷ niệm: UI nên lùi lại để ảnh và lời chúc nói chuyện.",
       "en": "Prioritize the person and memories: let the UI step back so photos and wishes can speak."
     },
     "featuredSkill": "Responsive UI",
@@ -271,18 +271,18 @@ const projects = [
   {
     "id": "phatleework7-github-io",
     "title": {
-      "vi": "Phatleework7 Github Io",
+      "vi": "Phatleework7 GitHub Io",
       "en": "Phatleework7 Github Io"
     },
     "audience": "personal",
     "year": "2025",
     "url": "https://phatleework7-github-io.vercel.app",
     "shortDescription": {
-      "vi": "Project moi duoc dong bo tu Vercel. Ban co the bo sung noi dung card trong data/projects-meta.json.",
+      "vi": "Dự án mới được đồng bộ từ Vercel. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.",
       "en": "A newly synced Vercel project. You can enrich this card in data/projects-meta.json."
     },
     "goal": {
-      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
+      "vi": "Đồng bộ tự động dự án mới từ nền tảng hosting và bổ sung metadata sau.",
       "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
     },
     "stack": [
@@ -291,9 +291,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "dong bo tu dong",
+        "đồng bộ tự động",
         "Vercel",
-        "can bo sung metadata"
+        "cần bổ sung metadata"
       ],
       "en": [
         "automatic sync",
@@ -305,15 +305,15 @@ const projects = [
     "platform": "vercel",
     "sourceUrl": "phatleework7.github.io",
     "problem": {
-      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
+      "vi": "Dự án mới đã được phát hiện từ hosting nhưng chưa có case study riêng.",
       "en": "This newly synced hosting project does not have a dedicated case study yet."
     },
     "outcome": {
-      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung sau.",
       "en": "Added to the hub for tracking and later enrichment."
     },
     "lesson": {
-      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      "vi": "Giữ workflow đồng bộ tự động giữa hosting và portfolio.",
       "en": "Keep an automated sync workflow between hosting and the portfolio."
     },
     "featuredSkill": "nextjs",
@@ -329,11 +329,11 @@ const projects = [
     "year": "2025",
     "url": "https://venerable-liger-871bb0.netlify.app",
     "shortDescription": {
-      "vi": "Project moi duoc dong bo tu Netlify. Ban co the bo sung noi dung card trong data/projects-meta.json.",
+      "vi": "Dự án mới được đồng bộ từ Netlify. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.",
       "en": "A newly synced Netlify project. You can enrich this card in data/projects-meta.json."
     },
     "goal": {
-      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
+      "vi": "Đồng bộ tự động dự án mới từ nền tảng hosting và bổ sung metadata sau.",
       "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
     },
     "stack": [
@@ -341,9 +341,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "dong bo tu dong",
+        "đồng bộ tự động",
         "Netlify",
-        "can bo sung metadata"
+        "cần bổ sung metadata"
       ],
       "en": [
         "automatic sync",
@@ -355,15 +355,15 @@ const projects = [
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/sui-move-blog",
     "problem": {
-      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
+      "vi": "Dự án mới đã được phát hiện từ hosting nhưng chưa có case study riêng.",
       "en": "This newly synced hosting project does not have a dedicated case study yet."
     },
     "outcome": {
-      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung sau.",
       "en": "Added to the hub for tracking and later enrichment."
     },
     "lesson": {
-      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      "vi": "Giữ workflow đồng bộ tự động giữa hosting và portfolio.",
       "en": "Keep an automated sync workflow between hosting and the portfolio."
     },
     "featuredSkill": "Netlify",
