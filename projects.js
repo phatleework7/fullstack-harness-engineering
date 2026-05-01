@@ -271,18 +271,18 @@ const projects = [
   {
     "id": "phatleework7-github-io",
     "title": {
-      "vi": "Phatleework7 GitHub Io",
+      "vi": "Phatleework7 Github Io",
       "en": "Phatleework7 Github Io"
     },
     "audience": "personal",
     "year": "2025",
     "url": "https://phatleework7-github-io.vercel.app",
     "shortDescription": {
-      "vi": "Dự án mới được đồng bộ từ Vercel. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.",
+      "vi": "Project moi duoc dong bo tu Vercel. Ban co the bo sung noi dung card trong data/projects-meta.json.",
       "en": "A newly synced Vercel project. You can enrich this card in data/projects-meta.json."
     },
     "goal": {
-      "vi": "Đồng bộ tự động dự án mới từ nền tảng hosting và bổ sung metadata sau.",
+      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
       "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
     },
     "stack": [
@@ -291,9 +291,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "đồng bộ tự động",
+        "dong bo tu dong",
         "Vercel",
-        "cần bổ sung metadata"
+        "can bo sung metadata"
       ],
       "en": [
         "automatic sync",
@@ -305,15 +305,15 @@ const projects = [
     "platform": "vercel",
     "sourceUrl": "phatleework7.github.io",
     "problem": {
-      "vi": "Dự án mới đã được phát hiện từ hosting nhưng chưa có case study riêng.",
+      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
       "en": "This newly synced hosting project does not have a dedicated case study yet."
     },
     "outcome": {
-      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung sau.",
+      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
       "en": "Added to the hub for tracking and later enrichment."
     },
     "lesson": {
-      "vi": "Giữ workflow đồng bộ tự động giữa hosting và portfolio.",
+      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
       "en": "Keep an automated sync workflow between hosting and the portfolio."
     },
     "featuredSkill": "nextjs",
@@ -329,11 +329,11 @@ const projects = [
     "year": "2025",
     "url": "https://venerable-liger-871bb0.netlify.app",
     "shortDescription": {
-      "vi": "Dự án mới được đồng bộ từ Netlify. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.",
+      "vi": "Project moi duoc dong bo tu Netlify. Ban co the bo sung noi dung card trong data/projects-meta.json.",
       "en": "A newly synced Netlify project. You can enrich this card in data/projects-meta.json."
     },
     "goal": {
-      "vi": "Đồng bộ tự động dự án mới từ nền tảng hosting và bổ sung metadata sau.",
+      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
       "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
     },
     "stack": [
@@ -341,9 +341,9 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "đồng bộ tự động",
+        "dong bo tu dong",
         "Netlify",
-        "cần bổ sung metadata"
+        "can bo sung metadata"
       ],
       "en": [
         "automatic sync",
@@ -355,15 +355,15 @@ const projects = [
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/sui-move-blog",
     "problem": {
-      "vi": "Dự án mới đã được phát hiện từ hosting nhưng chưa có case study riêng.",
+      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
       "en": "This newly synced hosting project does not have a dedicated case study yet."
     },
     "outcome": {
-      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung sau.",
+      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
       "en": "Added to the hub for tracking and later enrichment."
     },
     "lesson": {
-      "vi": "Giữ workflow đồng bộ tự động giữa hosting và portfolio.",
+      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
       "en": "Keep an automated sync workflow between hosting and the portfolio."
     },
     "featuredSkill": "Netlify",
