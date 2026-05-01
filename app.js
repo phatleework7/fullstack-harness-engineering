@@ -53,6 +53,8 @@ const translations = {
       audienceFilterLabel: "Lọc đối tượng",
       stackFilterLabel: "Lọc công nghệ",
       statusFilterLabel: "Lọc trạng thái",
+      copySummary: "Copy summary",
+      copiedSummary: "Đã copy summary",
       clearFilters: "Đặt lại bộ lọc",
       resultsZero: "Không có project nào phù hợp với bộ lọc hiện tại.",
       resultsOne: "Đang hiện 1 project phù hợp.",
@@ -178,6 +180,8 @@ const translations = {
       audienceFilterLabel: "Audience filter",
       stackFilterLabel: "Stack filter",
       statusFilterLabel: "Status filter",
+      copySummary: "Copy summary",
+      copiedSummary: "Summary copied",
       clearFilters: "Reset view",
       resultsZero: "No projects match the current filters.",
       resultsOne: "Showing 1 matching project.",
@@ -281,6 +285,7 @@ const presentationStart = document.getElementById("presentation-start");
 const previewClose = document.getElementById("preview-close");
 const previewMinimize = document.getElementById("preview-minimize");
 const previewMaximize = document.getElementById("preview-maximize");
+const previewWindowTitle = document.getElementById("preview-window-title");
 const totalProjectsEl = document.getElementById("total-projects");
 const familyProjectsEl = document.getElementById("family-projects");
 const girlfriendProjectsEl = document.getElementById("girlfriend-projects");
@@ -288,6 +293,7 @@ const languageButtons = Array.from(document.querySelectorAll("[data-lang]"));
 const metaDescription = document.querySelector('meta[name="description"]');
 const searchInput = document.getElementById("project-search");
 const resultsCopy = document.getElementById("results-copy");
+const copySummaryButton = document.getElementById("copy-summary");
 const clearFiltersButton = document.getElementById("clear-filters");
 
 function interpolate(template, values) {
@@ -553,6 +559,49 @@ function copyProjectUrl(url, button) {
   });
 }
 
+function getProjectDomain(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+function getPortfolioSummary() {
+  return getVisibleProjects()
+    .map((project, index) => {
+      return [
+        `${index + 1}. ${localize(project.title)} (${project.year})`,
+        `Audience: ${audienceLabel(project.audience)}`,
+        `Stack: ${project.stack.join(", ")}`,
+        `Highlight: ${localize(project.highlights).join(", ")}`,
+        `Lesson: ${localize(project.lesson)}`,
+        `URL: ${project.url}`,
+      ].join("\n");
+    })
+    .join("\n\n");
+}
+
+function copyPortfolioSummary() {
+  const summary = getPortfolioSummary();
+
+  if (!summary) {
+    return;
+  }
+
+  if (!navigator.clipboard) {
+    return;
+  }
+
+  navigator.clipboard.writeText(summary).then(() => {
+    const originalText = copySummaryButton.textContent;
+    copySummaryButton.textContent = t("projects.copiedSummary");
+    window.setTimeout(() => {
+      copySummaryButton.textContent = originalText;
+    }, 1500);
+  });
+}
+
 function resetFilters() {
   state.activeFilter = "all";
   state.activeStack = "all";
@@ -592,10 +641,12 @@ function activateProject(project) {
   renderProjects();
   renderPreview(project);
   document.querySelector(".preview-column")?.classList.add("is-visible");
+  previewWindowTitle.textContent = `${localize(project.title)} - ${getProjectDomain(project.url)}`;
 }
 
 function hidePreview() {
   state.activeProjectId = null;
+  previewWindowTitle.textContent = "";
   previewContent.innerHTML = `
     <div class="preview-empty">
       <p class="section-label">${t("preview.emptyLabel")}</p>
@@ -718,6 +769,7 @@ function renderProjects() {
 }
 
 function renderPreview(project) {
+  previewWindowTitle.textContent = `${localize(project.title)} - ${getProjectDomain(project.url)}`;
   previewContent.innerHTML = `
     <div class="preview-pane">
       <div class="preview-meta">
@@ -952,6 +1004,7 @@ searchInput.addEventListener("input", (event) => {
   renderProjects();
 });
 
+copySummaryButton.addEventListener("click", copyPortfolioSummary);
 filterToggle.addEventListener("click", toggleFilters);
 menuToggle.addEventListener("click", () => {
   state.navOpen = !state.navOpen;
@@ -974,6 +1027,20 @@ presentationStart.addEventListener("click", openPresentation);
 previewClose.addEventListener("click", hidePreview);
 previewMinimize.addEventListener("click", hidePreview);
 previewMaximize.addEventListener("click", maximizePreview);
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  if (projectDialog.open) {
+    closeProjectDetail();
+    return;
+  }
+
+  if (state.activeProjectId) {
+    hidePreview();
+  }
+});
 window.addEventListener("hashchange", () => {
   if (!location.hash.startsWith("#project/")) {
     return;
