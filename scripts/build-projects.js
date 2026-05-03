@@ -21,27 +21,27 @@ function defaultTitle(id) {
 function fallbackDescriptions(platformName) {
   return {
     shortDescription: {
-      vi: `Project moi duoc dong bo tu ${platformName}. Ban co the bo sung noi dung card trong data/projects-meta.json.`,
+      vi: `Dự án mới được đồng bộ từ ${platformName}. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.`,
       en: `A newly synced ${platformName} project. You can enrich this card in data/projects-meta.json.`,
     },
     goal: {
-      vi: "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
+      vi: "Đồng bộ tự động dự án mới từ nhà cung cấp hosting và bổ sung metadata sau.",
       en: "Automatically sync new hosting projects first, then add richer metadata afterward.",
     },
     highlights: {
-      vi: ["dong bo tu dong", platformName, "can bo sung metadata"],
+      vi: ["Đồng bộ tự động", platformName, "Bổ sung metadata"],
       en: ["automatic sync", platformName, "metadata pending"],
     },
     problem: {
-      vi: "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
+      vi: "Dự án mới đã được phát hiện từ nhà cung cấp hosting nhưng chưa có case study riêng.",
       en: "This newly synced hosting project does not have a dedicated case study yet.",
     },
     outcome: {
-      vi: "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      vi: "Được đưa vào hub để theo dõi và bổ sung nội dung sau.",
       en: "Added to the hub for tracking and later enrichment.",
     },
     lesson: {
-      vi: "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      vi: "Giữ workflow đồng bộ tự động giữa nhà cung cấp hosting và portfolio.",
       en: "Keep an automated sync workflow between hosting and the portfolio.",
     },
   };

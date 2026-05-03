@@ -201,9 +201,14 @@
           </div>
           <div class="results-bar">
             <p class="results-copy" id="results-copy"></p>
-            <button class="secondary-button" id="clear-filters" type="button" data-i18n="projects.clearFilters">
-              Reset view
-            </button>
+            <div class="results-actions">
+              <button class="secondary-button" id="copy-summary" type="button" data-i18n="projects.copySummary">
+                Copy summary
+              </button>
+              <button class="secondary-button" id="clear-filters" type="button" data-i18n="projects.clearFilters">
+                Reset view
+              </button>
+            </div>
           </div>
         </section>
 
@@ -218,6 +223,7 @@
                 <button class="window-dot close" id="preview-close" type="button" aria-label="Close preview"></button>
                 <button class="window-dot minimize" id="preview-minimize" type="button" aria-label="Minimize preview"></button>
                 <button class="window-dot maximize" id="preview-maximize" type="button" aria-label="Open project detail"></button>
+                <div class="preview-window-title" id="preview-window-title">No project selected</div>
               </div>
               <div class="preview-content" id="preview-content">
                 <div class="preview-empty">
