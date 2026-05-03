@@ -271,19 +271,19 @@ const projects = [
   {
     "id": "phatleework7-github-io",
     "title": {
-      "vi": "Phatleework7 Github Io",
-      "en": "Phatleework7 Github Io"
+      "vi": "Phatleework7 GitHub.io",
+      "en": "Phatleework7 GitHub.io"
     },
     "audience": "personal",
     "year": "2025",
     "url": "https://phatleework7-github-io.vercel.app",
     "shortDescription": {
-      "vi": "Project moi duoc dong bo tu Vercel. Ban co the bo sung noi dung card trong data/projects-meta.json.",
-      "en": "A newly synced Vercel project. You can enrich this card in data/projects-meta.json."
+      "vi": "Trang cá nhân đồng bộ từ Vercel; chờ bổ sung case study.",
+      "en": "Personal site auto-synced from Vercel; case study pending."
     },
     "goal": {
-      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
-      "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
+      "vi": "Lưu trữ và giới thiệu dự án cá nhân; bổ sung nội dung sau khi hoàn thiện.",
+      "en": "Host personal projects and notes; enrich card with details once ready."
     },
     "stack": [
       "nextjs",
@@ -291,82 +291,82 @@ const projects = [
     ],
     "highlights": {
       "vi": [
-        "dong bo tu dong",
+        "Next.js",
         "Vercel",
-        "can bo sung metadata"
+        "đồng bộ tự động"
       ],
       "en": [
-        "automatic sync",
+        "Next.js",
         "Vercel",
-        "metadata pending"
+        "automatic sync"
       ]
     },
-    "status": "needs-metadata",
+    "status": "live",
     "platform": "vercel",
     "sourceUrl": "phatleework7.github.io",
     "problem": {
-      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
-      "en": "This newly synced hosting project does not have a dedicated case study yet."
+      "vi": "Thiếu case study và metadata mô tả project.",
+      "en": "No case study or descriptive metadata yet."
     },
     "outcome": {
-      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung.",
       "en": "Added to the hub for tracking and later enrichment."
     },
     "lesson": {
-      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
+      "vi": "Giữ workflow đồng bộ giữa hosting và portfolio.",
       "en": "Keep an automated sync workflow between hosting and the portfolio."
     },
-    "featuredSkill": "nextjs",
+    "featuredSkill": "Next.js",
     "thumbnailTone": "warm"
   },
   {
     "id": "venerable-liger-871bb0",
     "title": {
-      "vi": "Venerable Liger 871bb0",
-      "en": "Venerable Liger 871bb0"
+      "vi": "Sui Move Blog",
+      "en": "Sui Move Blog"
     },
     "audience": "personal",
     "year": "2025",
     "url": "https://venerable-liger-871bb0.netlify.app",
     "shortDescription": {
-      "vi": "Project moi duoc dong bo tu Netlify. Ban co the bo sung noi dung card trong data/projects-meta.json.",
-      "en": "A newly synced Netlify project. You can enrich this card in data/projects-meta.json."
+      "vi": "Blog kỹ thuật Sui/Move đồng bộ từ Netlify; chờ bổ sung nội dung case study.",
+      "en": "Technical Sui/Move blog auto-synced from Netlify; case study pending."
     },
     "goal": {
-      "vi": "Dong bo tu dong project moi tu nen tang hosting va bo sung metadata sau.",
-      "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
+      "vi": "Lưu trữ ghi chép kỹ thuật và thử nghiệm Sui/Move.",
+      "en": "Document Sui/Move experiments and learnings."
     },
     "stack": [
       "Netlify"
     ],
     "highlights": {
       "vi": [
-        "dong bo tu dong",
-        "Netlify",
-        "can bo sung metadata"
+        "Sui",
+        "Move",
+        "blog"
       ],
       "en": [
-        "automatic sync",
-        "Netlify",
-        "metadata pending"
+        "Sui",
+        "Move",
+        "technical blog"
       ]
     },
-    "status": "needs-metadata",
+    "status": "live",
     "platform": "netlify",
     "sourceUrl": "https://github.com/phatleework7/sui-move-blog",
     "problem": {
-      "vi": "Project moi da duoc phat hien tu hosting nhung chua co case study rieng.",
-      "en": "This newly synced hosting project does not have a dedicated case study yet."
+      "vi": "Chưa có case study chi tiết.",
+      "en": "No detailed case study yet."
     },
     "outcome": {
-      "vi": "Duoc dua vao hub de theo doi va bo sung noi dung sau.",
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung.",
       "en": "Added to the hub for tracking and later enrichment."
     },
     "lesson": {
-      "vi": "Giu workflow dong bo tu dong giua hosting va portfolio.",
-      "en": "Keep an automated sync workflow between hosting and the portfolio."
+      "vi": "Ghi lại thử nghiệm kỹ thuật để tái sử dụng.",
+      "en": "Record experiments for future reuse."
     },
-    "featuredSkill": "Netlify",
+    "featuredSkill": "Sui/Move",
     "thumbnailTone": "warm"
   }
 ];
