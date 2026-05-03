@@ -15,10 +15,24 @@
       "en": "Create a surprising digital gift that feels interactive and delivers a heartfelt message in a soft, memorable way."
     },
     "highlights": {
-      "vi": ["vườn hoa 3D", "lời nhắn bí mật", "nhạc nền"],
-      "en": ["3D rose garden", "secret message", "background music"]
+      "vi": [
+        "vườn hoa 3D",
+        "lời nhắn bí mật",
+        "nhạc nền"
+      ],
+      "en": [
+        "3D rose garden",
+        "secret message",
+        "background music"
+      ]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Three.js", "Netlify"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Three.js",
+      "Netlify"
+    ],
     "status": "live",
     "featuredSkill": "Three.js",
     "thumbnailTone": "rose",
@@ -51,10 +65,23 @@
       "en": "Turn a Valentine greeting into a tiny game so the receiver can play and discover the romantic message naturally."
     },
     "highlights": {
-      "vi": ["game lật thẻ", "modal chiến thắng", "lời chúc tình cảm"],
-      "en": ["memory card game", "victory modal", "romantic message"]
+      "vi": [
+        "game lật thẻ",
+        "modal chiến thắng",
+        "lời chúc tình cảm"
+      ],
+      "en": [
+        "memory card game",
+        "victory modal",
+        "romantic message"
+      ]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Netlify"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Netlify"
+    ],
     "status": "live",
     "featuredSkill": "Game logic",
     "thumbnailTone": "rose",
@@ -87,10 +114,24 @@
       "en": "Build a distinctive Christmas experience that goes beyond viewing by letting the user interact through camera-based hand gestures."
     },
     "highlights": {
-      "vi": ["điều khiển bằng tay", "khung cảnh 3D", "ảnh kỷ niệm xoay quanh"],
-      "en": ["gesture control", "3D Christmas scene", "orbiting memory photos"]
+      "vi": [
+        "điều khiển bằng tay",
+        "khung cảnh 3D",
+        "ảnh kỷ niệm xoay quanh"
+      ],
+      "en": [
+        "gesture control",
+        "3D Christmas scene",
+        "orbiting memory photos"
+      ]
     },
-    "stack": ["HTML", "JavaScript", "Three.js", "MediaPipe Hands", "Netlify"],
+    "stack": [
+      "HTML",
+      "JavaScript",
+      "Three.js",
+      "MediaPipe Hands",
+      "Netlify"
+    ],
     "status": "live",
     "featuredSkill": "MediaPipe Hands",
     "thumbnailTone": "mint",
@@ -123,10 +164,24 @@
       "en": "Create a family birthday page that feels warm and thoughtful so the recipient can sense genuine care and respect."
     },
     "highlights": {
-      "vi": ["hero slider", "gallery kỷ niệm", "lời chúc sinh nhật"],
-      "en": ["hero slider", "memory gallery", "birthday wishes"]
+      "vi": [
+        "hero slider",
+        "gallery kỷ niệm",
+        "lời chúc sinh nhật"
+      ],
+      "en": [
+        "hero slider",
+        "memory gallery",
+        "birthday wishes"
+      ]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Responsive UI", "Netlify"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI",
+      "Netlify"
+    ],
     "status": "live",
     "featuredSkill": "Responsive UI",
     "thumbnailTone": "warm",
@@ -159,10 +214,24 @@
       "en": "Build a clean business website that introduces the restaurant, improves trust, and makes it easy for customers to contact or find the place."
     },
     "highlights": {
-      "vi": ["trang giới thiệu quán", "thực đơn", "ưu đãi và liên hệ"],
-      "en": ["restaurant landing page", "menu section", "promotions and contact"]
+      "vi": [
+        "trang giới thiệu quán",
+        "thực đơn",
+        "ưu đãi và liên hệ"
+      ],
+      "en": [
+        "restaurant landing page",
+        "menu section",
+        "promotions and contact"
+      ]
     },
-    "stack": ["HTML", "CSS", "JavaScript", "Responsive UI", "Vercel"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI",
+      "Vercel"
+    ],
     "status": "live",
     "featuredSkill": "Business landing page",
     "thumbnailTone": "mint",
@@ -195,10 +264,24 @@
       "en": "Create a personal brand website that presents skills and projects while giving clients or recruiters a professional first impression."
     },
     "highlights": {
-      "vi": ["thương hiệu cá nhân", "giới thiệu dự án", "contact và social links"],
-      "en": ["personal branding", "project showcase", "contact and social links"]
+      "vi": [
+        "thương hiệu cá nhân",
+        "giới thiệu dự án",
+        "contact và social links"
+      ],
+      "en": [
+        "personal branding",
+        "project showcase",
+        "contact and social links"
+      ]
     },
-    "stack": ["Next.js", "React", "JavaScript", "Portfolio UI", "Vercel"],
+    "stack": [
+      "Next.js",
+      "React",
+      "JavaScript",
+      "Portfolio UI",
+      "Vercel"
+    ],
     "status": "live",
     "featuredSkill": "Portfolio positioning",
     "thumbnailTone": "warm",
@@ -213,6 +296,99 @@
     "lesson": {
       "vi": "Học cách chuyển project cá nhân thành câu chuyện nghề nghiệp mà người xem có thể nắm bắt nhanh.",
       "en": "Learn to turn personal projects into a professional story that viewers can understand quickly."
+    }
+  },
+  {
+    "id": "phatleework7-github-io",
+    "audience": "personal",
+    "title": {
+      "vi": "Phatleework7 GitHub.io",
+      "en": "Phatleework7 GitHub.io"
+    },
+    "shortDescription": {
+      "vi": "Trang cá nhân đồng bộ từ Vercel; chờ bổ sung case study.",
+      "en": "Personal site auto-synced from Vercel; case study pending."
+    },
+    "goal": {
+      "vi": "Lưu trữ và giới thiệu dự án cá nhân; bổ sung nội dung sau khi hoàn thiện.",
+      "en": "Host personal projects and notes; enrich card with details once ready."
+    },
+    "highlights": {
+      "vi": [
+        "Next.js",
+        "Vercel",
+        "đồng bộ tự động"
+      ],
+      "en": [
+        "Next.js",
+        "Vercel",
+        "automatic sync"
+      ]
+    },
+    "stack": [
+      "nextjs",
+      "Vercel"
+    ],
+    "status": "live",
+    "featuredSkill": "Next.js",
+    "thumbnailTone": "warm",
+    "problem": {
+      "vi": "Thiếu case study và metadata mô tả project.",
+      "en": "No case study or descriptive metadata yet."
+    },
+    "outcome": {
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung.",
+      "en": "Added to the hub for tracking and later enrichment."
+    },
+    "lesson": {
+      "vi": "Giữ workflow đồng bộ giữa hosting và portfolio.",
+      "en": "Keep an automated sync workflow between hosting and the portfolio."
+    }
+  },
+  {
+    "id": "venerable-liger-871bb0",
+    "audience": "personal",
+    "title": {
+      "vi": "Sui Move Blog",
+      "en": "Sui Move Blog"
+    },
+    "shortDescription": {
+      "vi": "Blog kỹ thuật Sui/Move đồng bộ từ Netlify; chờ bổ sung nội dung case study.",
+      "en": "Technical Sui/Move blog auto-synced from Netlify; case study pending."
+    },
+    "goal": {
+      "vi": "Lưu trữ ghi chép kỹ thuật và thử nghiệm Sui/Move.",
+      "en": "Document Sui/Move experiments and learnings."
+    },
+    "highlights": {
+      "vi": [
+        "Sui",
+        "Move",
+        "blog"
+      ],
+      "en": [
+        "Sui",
+        "Move",
+        "technical blog"
+      ]
+    },
+    "stack": [
+      "Netlify"
+    ],
+    "status": "live",
+    "featuredSkill": "Sui/Move",
+    "thumbnailTone": "warm",
+    "problem": {
+      "vi": "Chưa có case study chi tiết.",
+      "en": "No detailed case study yet."
+    },
+    "outcome": {
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung.",
+      "en": "Added to the hub for tracking and later enrichment."
+    },
+    "lesson": {
+      "vi": "Ghi lại thử nghiệm kỹ thuật để tái sử dụng.",
+      "en": "Record experiments for future reuse."
     }
   }
 ]
