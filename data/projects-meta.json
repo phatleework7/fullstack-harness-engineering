@@ -47,7 +47,9 @@
     "lesson": {
       "vi": "Học cách dùng Three.js cho cảm xúc: giữ cảnh đơn giản, có điểm nhấn, và để interaction phục vụ câu chuyện.",
       "en": "Use Three.js emotionally: keep the scene simple, focused, and let interaction serve the story."
-    }
+    },
+    "dedicatedPage": true,
+    "loveSince": "2023-03-02"
   },
   {
     "id": "valentine26-for-sakna",
@@ -96,7 +98,8 @@
     "lesson": {
       "vi": "Rèn tư duy state UI: card đã lật, cặp đã match, chiến thắng và flow phản hồi cho người chơi.",
       "en": "Practice UI state thinking: flipped cards, matched pairs, victory state, and player feedback."
-    }
+    },
+    "dedicatedPage": true
   },
   {
     "id": "merry-christmas-sakna",
@@ -146,7 +149,8 @@
     "lesson": {
       "vi": "Học cách kết hợp Web APIs, computer vision và 3D mà vẫn cần fallback trải nghiệm để người dùng không bị lạc.",
       "en": "Combine Web APIs, computer vision, and 3D while keeping the experience understandable for users."
-    }
+    },
+    "dedicatedPage": true
   },
   {
     "id": "happy-birthday-aunt-utthuy",

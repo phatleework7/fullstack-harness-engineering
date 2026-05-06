@@ -59,7 +59,7 @@ function mergeProject(generatedProject, metaProject) {
     ? metaProject.stack
     : [generatedProject.framework, platformName].filter(Boolean);
 
-  return {
+  const merged = {
     id: generatedProject.id,
     title,
     audience: metaProject?.audience || "personal",
@@ -78,6 +78,16 @@ function mergeProject(generatedProject, metaProject) {
     featuredSkill: metaProject?.featuredSkill || stack[0] || platformName,
     thumbnailTone: metaProject?.thumbnailTone || "warm",
   };
+
+  if (metaProject?.dedicatedPage === true) {
+    merged.dedicatedPage = true;
+  }
+
+  if (typeof metaProject?.loveSince === "string" && metaProject.loveSince.trim()) {
+    merged.loveSince = metaProject.loveSince.trim();
+  }
+
+  return merged;
 }
 
 const metaProjects = readJson(metaPath);

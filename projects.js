@@ -50,7 +50,8 @@ const projects = [
       "en": "Practice UI state thinking: flipped cards, matched pairs, victory state, and player feedback."
     },
     "featuredSkill": "Game logic",
-    "thumbnailTone": "rose"
+    "thumbnailTone": "rose",
+    "dedicatedPage": true
   },
   {
     "id": "merry-christmas-sakna",
@@ -104,7 +105,8 @@ const projects = [
       "en": "Combine Web APIs, computer vision, and 3D while keeping the experience understandable for users."
     },
     "featuredSkill": "MediaPipe Hands",
-    "thumbnailTone": "mint"
+    "thumbnailTone": "mint",
+    "dedicatedPage": true
   },
   {
     "id": "thien-y",
@@ -212,7 +214,9 @@ const projects = [
       "en": "Use Three.js emotionally: keep the scene simple, focused, and let interaction serve the story."
     },
     "featuredSkill": "Three.js",
-    "thumbnailTone": "rose"
+    "thumbnailTone": "rose",
+    "dedicatedPage": true,
+    "loveSince": "2023-03-02"
   },
   {
     "id": "happy-birthday-aunt-utthuy",

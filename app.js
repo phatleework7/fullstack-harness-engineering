@@ -28,6 +28,7 @@ const translations = {
       family: "dành cho gia đình",
       girlfriend: "dành cho người yêu",
       personal: "personal and work",
+      girlfriendLinkAria: "Xem tất cả project dành cho người yêu và đồng hồ yêu nhau",
     },
     collections: {
       label: "Bộ sưu tập",
@@ -79,6 +80,7 @@ const translations = {
       fallbackLabel: "Preview fallback",
       fallbackTitle: "Website này có thể đang chặn iframe.",
       fallbackBody: "Bạn vẫn có thể mở trực tiếp trong tab mới để xem đầy đủ nội dung.",
+      dedicatedPageLink: "Trang riêng (2 cửa sổ)",
     },
     detail: {
       problem: "Bài toán",
@@ -155,6 +157,7 @@ const translations = {
       family: "for family",
       girlfriend: "for girlfriend",
       personal: "personal and work",
+      girlfriendLinkAria: "View all girlfriend projects and the love timeline",
     },
     collections: {
       label: "Collections",
@@ -206,6 +209,7 @@ const translations = {
       fallbackLabel: "Preview fallback",
       fallbackTitle: "This site may be blocking iframe embedding.",
       fallbackBody: "You can still open it directly in a new tab to view the full experience.",
+      dedicatedPageLink: "Dedicated page (split view)",
     },
     detail: {
       problem: "Problem",
@@ -805,6 +809,11 @@ function renderPreview(project) {
         </p>
         <div class="preview-actions">
           <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("preview.openSite")}</a>
+          ${
+            project.dedicatedPage
+              ? `<a class="project-link" href="./project.html?id=${encodeURIComponent(project.id)}">${t("preview.dedicatedPageLink")}</a>`
+              : ""
+          }
           <button class="secondary-button" id="copy-link-button" type="button">${t("preview.copyLink")}</button>
           <button class="secondary-button" id="detail-button" type="button">${t("preview.details")}</button>
         </div>
