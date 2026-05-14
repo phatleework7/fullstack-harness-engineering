@@ -106,17 +106,38 @@
             <span id="total-projects">0</span>
             <p data-i18n="stats.total">total projects</p>
           </article>
-          <article>
-            <span id="family-projects">0</span>
-            <p data-i18n="stats.family">for family</p>
+          <article class="stats-strip-card stats-strip-card--link">
+            <a
+              class="stats-strip-link"
+              href="./collection.html?audience=family"
+              data-i18n-aria-label="stats.familyLinkAria"
+              aria-label="Xem tất cả project dành cho gia đình"
+            >
+              <span id="family-projects">0</span>
+              <p data-i18n="stats.family">for family</p>
+            </a>
           </article>
-          <article>
-            <span id="girlfriend-projects">0</span>
-            <p data-i18n="stats.girlfriend">for girlfriend</p>
+          <article class="stats-strip-card stats-strip-card--link">
+            <a
+              class="stats-strip-link"
+              href="./collection.html?audience=girlfriend"
+              data-i18n-aria-label="stats.girlfriendLinkAria"
+              aria-label="Xem tất cả project dành cho người yêu và đồng hồ yêu nhau"
+            >
+              <span id="girlfriend-projects">0</span>
+              <p data-i18n="stats.girlfriend">for girlfriend</p>
+            </a>
           </article>
-          <article>
-            <span id="personal-projects">0</span>
-            <p data-i18n="stats.personal">personal and work</p>
+          <article class="stats-strip-card stats-strip-card--link">
+            <a
+              class="stats-strip-link"
+              href="./collection.html?audience=personal"
+              data-i18n-aria-label="stats.personalLinkAria"
+              aria-label="Xem tất cả project cá nhân và công việc"
+            >
+              <span id="personal-projects">0</span>
+              <p data-i18n="stats.personal">personal and work</p>
+            </a>
           </article>
         </section>
 
@@ -128,27 +149,27 @@
             </div>
           </div>
           <div class="collection-grid">
-            <article class="collection-card warm">
+            <a class="collection-card collection-card-link warm" href="./collection.html?audience=family">
               <p class="collection-tag" data-i18n="collections.familyTag">Family side</p>
               <h3 data-i18n="collections.familyTitle">Projects that celebrate birthdays, memories, and closeness.</h3>
               <p data-i18n="collections.familyBody">
                 These are warm, respectful, memory-driven websites meant to preserve family moments and create lasting gifts.
               </p>
-            </article>
-            <article class="collection-card rose">
+            </a>
+            <a class="collection-card collection-card-link rose" href="./collection.html?audience=girlfriend">
               <p class="collection-tag" data-i18n="collections.girlfriendTag">Girlfriend side</p>
               <h3 data-i18n="collections.girlfriendTitle">Projects that turn feelings into playful, romantic experiences.</h3>
               <p data-i18n="collections.girlfriendBody">
                 These are emotional microsites and interactive surprises: flowers, games, holidays, music, and love notes.
               </p>
-            </article>
-            <article class="collection-card mint">
+            </a>
+            <a class="collection-card collection-card-link mint" href="./collection.html?audience=personal">
               <p class="collection-tag" data-i18n="collections.personalTag">Personal and work</p>
               <h3 data-i18n="collections.personalTitle">Projects for business, branding, and professional presentation.</h3>
               <p data-i18n="collections.personalBody">
                 These include portfolio websites, business landing pages, and projects that sharpen both craft and credibility.
               </p>
-            </article>
+            </a>
           </div>
         </section>
 
