@@ -56,6 +56,7 @@ const translations = {
       copySummary: "Copy summary",
       copiedSummary: "Đã copy summary",
       clearFilters: "Đặt lại bộ lọc",
+      surpriseMe: "Chọn ngẫu nhiên",
       resultsZero: "Không có project nào phù hợp với bộ lọc hiện tại.",
       resultsOne: "Đang hiện 1 project phù hợp.",
       resultsMany: "Đang hiện {count} project phù hợp.",
@@ -183,6 +184,7 @@ const translations = {
       copySummary: "Copy summary",
       copiedSummary: "Summary copied",
       clearFilters: "Reset view",
+      surpriseMe: "Surprise me",
       resultsZero: "No projects match the current filters.",
       resultsOne: "Showing 1 matching project.",
       resultsMany: "Showing {count} matching projects.",
@@ -295,6 +297,7 @@ const searchInput = document.getElementById("project-search");
 const resultsCopy = document.getElementById("results-copy");
 const copySummaryButton = document.getElementById("copy-summary");
 const clearFiltersButton = document.getElementById("clear-filters");
+const surpriseProjectButton = document.getElementById("surprise-project");
 
 function interpolate(template, values) {
   return Object.entries(values).reduce((result, [key, value]) => {
@@ -614,6 +617,21 @@ function resetFilters() {
   renderProjects();
 }
 
+function openRandomProject() {
+  const visibleProjects = getVisibleProjects();
+
+  if (!visibleProjects.length) {
+    return;
+  }
+
+  const candidates = visibleProjects.filter((project) => project.id !== state.activeProjectId);
+  const pool = candidates.length ? candidates : visibleProjects;
+  const randomProject = pool[Math.floor(Math.random() * pool.length)];
+
+  activateProject(randomProject);
+  scrollPreviewIntoView();
+}
+
 function audienceLabel(audience) {
   if (audience === "family") {
     return t("preview.audienceFamily");
@@ -683,6 +701,7 @@ function renderProjects() {
   const visibleProjects = getVisibleProjects();
   projectsGrid.innerHTML = "";
   setResultsCopy(visibleProjects.length);
+  surpriseProjectButton.disabled = !visibleProjects.length;
   clearFiltersButton.disabled =
     state.activeFilter === "all" &&
     state.activeStack === "all" &&
@@ -1017,6 +1036,7 @@ navLinks.forEach((link) => {
   });
 });
 clearFiltersButton.addEventListener("click", resetFilters);
+surpriseProjectButton.addEventListener("click", openRandomProject);
 dialogClose.addEventListener("click", closeProjectDetail);
 projectDialog.addEventListener("click", (event) => {
   if (event.target === projectDialog) {
