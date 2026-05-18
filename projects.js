@@ -1,5 +1,59 @@
 const projects = [
   {
+    "id": "thien-y",
+    "title": {
+      "vi": "Thiên Ý",
+      "en": "Thien Y"
+    },
+    "audience": "personal",
+    "year": "2025",
+    "url": "https://thien-y.vercel.app",
+    "shortDescription": {
+      "vi": "Landing page cho quán ăn chay Thiên Ý với giới thiệu thương hiệu, thực đơn, ưu đãi, liên hệ và bản đồ.",
+      "en": "A landing page for Thien Y vegetarian restaurant featuring brand story, menu, promotions, contact details, and map directions."
+    },
+    "goal": {
+      "vi": "Xây dựng website kinh doanh gọn gàng để giới thiệu quán, tăng độ tin cậy và giúp khách hàng dễ dàng liên hệ hoặc tìm đường.",
+      "en": "Build a clean business website that introduces the restaurant, improves trust, and makes it easy for customers to contact or find the place."
+    },
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI",
+      "Vercel"
+    ],
+    "highlights": {
+      "vi": [
+        "trang giới thiệu quán",
+        "thực đơn",
+        "ưu đãi và liên hệ"
+      ],
+      "en": [
+        "restaurant landing page",
+        "menu section",
+        "promotions and contact"
+      ]
+    },
+    "status": "live",
+    "platform": "vercel",
+    "sourceUrl": "Thien_y",
+    "problem": {
+      "vi": "Cần website kinh doanh gọn gàng cho quán ăn chay, giúp khách nhanh chóng hiểu quán và tìm thông tin liên hệ.",
+      "en": "Create a focused restaurant landing page that helps customers quickly understand the business and contact it."
+    },
+    "outcome": {
+      "vi": "Landing page có câu chuyện thương hiệu, menu, ưu đãi, thông tin liên hệ và bản đồ.",
+      "en": "A landing page with brand story, menu, promotions, contact information, and map directions."
+    },
+    "lesson": {
+      "vi": "Học cách viết UI phục vụ conversion: nội dung rõ, CTA dễ thấy và thông tin thực dụng đặt đúng chỗ.",
+      "en": "Practice conversion-minded UI: clear content, visible calls to action, and practical information in the right place."
+    },
+    "featuredSkill": "Business landing page",
+    "thumbnailTone": "mint"
+  },
+  {
     "id": "valentine26-for-sakna",
     "title": {
       "vi": "Valentine 26 For Sakna",
@@ -104,60 +158,6 @@ const projects = [
       "en": "Combine Web APIs, computer vision, and 3D while keeping the experience understandable for users."
     },
     "featuredSkill": "MediaPipe Hands",
-    "thumbnailTone": "mint"
-  },
-  {
-    "id": "thien-y",
-    "title": {
-      "vi": "Thiên Ý",
-      "en": "Thien Y"
-    },
-    "audience": "personal",
-    "year": "2025",
-    "url": "https://thien-y.vercel.app",
-    "shortDescription": {
-      "vi": "Landing page cho quán ăn chay Thiên Ý với giới thiệu thương hiệu, thực đơn, ưu đãi, liên hệ và bản đồ.",
-      "en": "A landing page for Thien Y vegetarian restaurant featuring brand story, menu, promotions, contact details, and map directions."
-    },
-    "goal": {
-      "vi": "Xây dựng website kinh doanh gọn gàng để giới thiệu quán, tăng độ tin cậy và giúp khách hàng dễ dàng liên hệ hoặc tìm đường.",
-      "en": "Build a clean business website that introduces the restaurant, improves trust, and makes it easy for customers to contact or find the place."
-    },
-    "stack": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive UI",
-      "Vercel"
-    ],
-    "highlights": {
-      "vi": [
-        "trang giới thiệu quán",
-        "thực đơn",
-        "ưu đãi và liên hệ"
-      ],
-      "en": [
-        "restaurant landing page",
-        "menu section",
-        "promotions and contact"
-      ]
-    },
-    "status": "live",
-    "platform": "vercel",
-    "sourceUrl": "Thien_y",
-    "problem": {
-      "vi": "Cần website kinh doanh gọn gàng cho quán ăn chay, giúp khách nhanh chóng hiểu quán và tìm thông tin liên hệ.",
-      "en": "Create a focused restaurant landing page that helps customers quickly understand the business and contact it."
-    },
-    "outcome": {
-      "vi": "Landing page có câu chuyện thương hiệu, menu, ưu đãi, thông tin liên hệ và bản đồ.",
-      "en": "A landing page with brand story, menu, promotions, contact information, and map directions."
-    },
-    "lesson": {
-      "vi": "Học cách viết UI phục vụ conversion: nội dung rõ, CTA dễ thấy và thông tin thực dụng đặt đúng chỗ.",
-      "en": "Practice conversion-minded UI: clear content, visible calls to action, and practical information in the right place."
-    },
-    "featuredSkill": "Business landing page",
     "thumbnailTone": "mint"
   },
   {
