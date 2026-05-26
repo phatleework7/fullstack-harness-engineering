@@ -1,5 +1,56 @@
 const projects = [
   {
+    "id": "phatleework7-github-io",
+    "title": {
+      "vi": "Phatleework7 GitHub.io",
+      "en": "Phatleework7 GitHub.io"
+    },
+    "audience": "personal",
+    "year": "2025",
+    "url": "https://phatleework7-github-io.vercel.app",
+    "shortDescription": {
+      "vi": "Trang cá nhân đồng bộ từ Vercel; chờ bổ sung case study.",
+      "en": "Personal site auto-synced from Vercel; case study pending."
+    },
+    "goal": {
+      "vi": "Lưu trữ và giới thiệu dự án cá nhân; bổ sung nội dung sau khi hoàn thiện.",
+      "en": "Host personal projects and notes; enrich card with details once ready."
+    },
+    "stack": [
+      "nextjs",
+      "Vercel"
+    ],
+    "highlights": {
+      "vi": [
+        "Next.js",
+        "Vercel",
+        "đồng bộ tự động"
+      ],
+      "en": [
+        "Next.js",
+        "Vercel",
+        "automatic sync"
+      ]
+    },
+    "status": "live",
+    "platform": "vercel",
+    "sourceUrl": "phatleework7.github.io",
+    "problem": {
+      "vi": "Thiếu case study và metadata mô tả project.",
+      "en": "No case study or descriptive metadata yet."
+    },
+    "outcome": {
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung.",
+      "en": "Added to the hub for tracking and later enrichment."
+    },
+    "lesson": {
+      "vi": "Giữ workflow đồng bộ giữa hosting và portfolio.",
+      "en": "Keep an automated sync workflow between hosting and the portfolio."
+    },
+    "featuredSkill": "Next.js",
+    "thumbnailTone": "warm"
+  },
+  {
     "id": "thien-y",
     "title": {
       "vi": "Thiên Ý",
@@ -266,57 +317,6 @@ const projects = [
       "en": "Prioritize the person and memories: let the UI step back so photos and wishes can speak."
     },
     "featuredSkill": "Responsive UI",
-    "thumbnailTone": "warm"
-  },
-  {
-    "id": "phatleework7-github-io",
-    "title": {
-      "vi": "Phatleework7 GitHub.io",
-      "en": "Phatleework7 GitHub.io"
-    },
-    "audience": "personal",
-    "year": "2025",
-    "url": "https://phatleework7-github-io.vercel.app",
-    "shortDescription": {
-      "vi": "Trang cá nhân đồng bộ từ Vercel; chờ bổ sung case study.",
-      "en": "Personal site auto-synced from Vercel; case study pending."
-    },
-    "goal": {
-      "vi": "Lưu trữ và giới thiệu dự án cá nhân; bổ sung nội dung sau khi hoàn thiện.",
-      "en": "Host personal projects and notes; enrich card with details once ready."
-    },
-    "stack": [
-      "nextjs",
-      "Vercel"
-    ],
-    "highlights": {
-      "vi": [
-        "Next.js",
-        "Vercel",
-        "đồng bộ tự động"
-      ],
-      "en": [
-        "Next.js",
-        "Vercel",
-        "automatic sync"
-      ]
-    },
-    "status": "live",
-    "platform": "vercel",
-    "sourceUrl": "phatleework7.github.io",
-    "problem": {
-      "vi": "Thiếu case study và metadata mô tả project.",
-      "en": "No case study or descriptive metadata yet."
-    },
-    "outcome": {
-      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung.",
-      "en": "Added to the hub for tracking and later enrichment."
-    },
-    "lesson": {
-      "vi": "Giữ workflow đồng bộ giữa hosting và portfolio.",
-      "en": "Keep an automated sync workflow between hosting and the portfolio."
-    },
-    "featuredSkill": "Next.js",
     "thumbnailTone": "warm"
   },
   {
