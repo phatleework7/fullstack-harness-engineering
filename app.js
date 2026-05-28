@@ -15,6 +15,8 @@ const translations = {
       body: "Trang này giúp bạn lưu trữ, giới thiệu, và xem nhanh các website cá nhân trong một giao diện gọn gàng hơn. Rê chuột vào card để thử mở preview ngay trên trang khi website cho phép nhúng iframe.",
       primaryCta: "Xem project",
       secondaryCta: "Chế độ trình chiếu",
+      promptTitle: "Nhảy nhanh tới bất kỳ project nào bằng tên, stack, hoặc câu chuyện.",
+      promptHint: "focus ô tìm kiếm ngay",
       panelLabel: "Vì sao hub này hữu ích",
       panelOneTitle: "Showcase",
       panelOneBody: "Gộp các side project đầy cảm xúc thành một portfolio cá nhân gọn gàng và có chủ ý.",
@@ -28,6 +30,9 @@ const translations = {
       family: "dành cho gia đình",
       girlfriend: "dành cho người yêu",
       personal: "personal and work",
+      familyLinkAria: "Xem tất cả project dành cho gia đình",
+      girlfriendLinkAria: "Xem tất cả project dành cho người yêu và đồng hồ yêu nhau",
+      personalLinkAria: "Xem tất cả project cá nhân và công việc",
     },
     collections: {
       label: "Bộ sưu tập",
@@ -56,6 +61,10 @@ const translations = {
       copySummary: "Copy summary",
       copiedSummary: "Đã copy summary",
       clearFilters: "Đặt lại bộ lọc",
+      liveQueryLabel: "Truy vấn hiện tại",
+      suggestLove: "yêu",
+      suggestBirthday: "sinh nhật",
+      suggestPortfolio: "portfolio",
       resultsZero: "Không có project nào phù hợp với bộ lọc hiện tại.",
       resultsOne: "Đang hiện 1 project phù hợp.",
       resultsMany: "Đang hiện {count} project phù hợp.",
@@ -79,6 +88,7 @@ const translations = {
       fallbackLabel: "Preview fallback",
       fallbackTitle: "Website này có thể đang chặn iframe.",
       fallbackBody: "Bạn vẫn có thể mở trực tiếp trong tab mới để xem đầy đủ nội dung.",
+      dedicatedPageLink: "Trang riêng (2 cửa sổ)",
     },
     detail: {
       problem: "Bài toán",
@@ -142,6 +152,8 @@ const translations = {
       body: "This website gathers your personal projects into one place so you can revisit, present, and preview them with ease. Hover a card to open a live preview right on the page whenever embedding is allowed.",
       primaryCta: "View projects",
       secondaryCta: "Presentation mode",
+      promptTitle: "Jump to any project by title, stack, or story.",
+      promptHint: "focus search instantly",
       panelLabel: "Why this hub works",
       panelOneTitle: "Showcase",
       panelOneBody: "Bring emotional side projects together into a polished personal portfolio.",
@@ -155,6 +167,9 @@ const translations = {
       family: "for family",
       girlfriend: "for girlfriend",
       personal: "personal and work",
+      familyLinkAria: "View all projects for family",
+      girlfriendLinkAria: "View all girlfriend projects and the love timeline",
+      personalLinkAria: "View all personal and work projects",
     },
     collections: {
       label: "Collections",
@@ -183,6 +198,10 @@ const translations = {
       copySummary: "Copy summary",
       copiedSummary: "Summary copied",
       clearFilters: "Reset view",
+      liveQueryLabel: "Live query",
+      suggestLove: "love",
+      suggestBirthday: "birthday",
+      suggestPortfolio: "portfolio",
       resultsZero: "No projects match the current filters.",
       resultsOne: "Showing 1 matching project.",
       resultsMany: "Showing {count} matching projects.",
@@ -206,6 +225,7 @@ const translations = {
       fallbackLabel: "Preview fallback",
       fallbackTitle: "This site may be blocking iframe embedding.",
       fallbackBody: "You can still open it directly in a new tab to view the full experience.",
+      dedicatedPageLink: "Dedicated page (split view)",
     },
     detail: {
       problem: "Problem",
@@ -288,13 +308,19 @@ const previewMaximize = document.getElementById("preview-maximize");
 const previewWindowTitle = document.getElementById("preview-window-title");
 const totalProjectsEl = document.getElementById("total-projects");
 const familyProjectsEl = document.getElementById("family-projects");
+const liveProjectsEl = document.getElementById("live-projects");
+const stackTotalEl = document.getElementById("stack-total");
 const girlfriendProjectsEl = document.getElementById("girlfriend-projects");
 const languageButtons = Array.from(document.querySelectorAll("[data-lang]"));
 const metaDescription = document.querySelector('meta[name="description"]');
 const searchInput = document.getElementById("project-search");
 const resultsCopy = document.getElementById("results-copy");
+const resultsMetrics = document.getElementById("results-metrics");
 const copySummaryButton = document.getElementById("copy-summary");
 const clearFiltersButton = document.getElementById("clear-filters");
+const toastStack = document.getElementById("toast-stack");
+const heroSearchTrigger = document.getElementById("hero-search-trigger");
+const searchSuggestionButtons = Array.from(document.querySelectorAll("[data-search-suggestion]"));
 
 function interpolate(template, values) {
   return Object.entries(values).reduce((result, [key, value]) => {
@@ -325,6 +351,26 @@ function statusLabel(status) {
   return labels[status] || labels.live;
 }
 
+function showToast(message, type = "default") {
+  if (!toastStack || !message) {
+    return;
+  }
+
+  const toast = document.createElement("div");
+  toast.className = `toast toast--${type}`;
+  toast.textContent = message;
+  toastStack.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.classList.add("is-visible");
+  });
+
+  window.setTimeout(() => {
+    toast.classList.remove("is-visible");
+    window.setTimeout(() => toast.remove(), 240);
+  }, 2200);
+}
+
 function setStats() {
   totalProjectsEl.textContent = String(projects.length).padStart(2, "0");
   familyProjectsEl.textContent = String(
@@ -337,6 +383,18 @@ function setStats() {
   personalProjectsEl.textContent = String(
     projects.filter((project) => project.audience === "personal").length
   ).padStart(2, "0");
+
+  if (liveProjectsEl) {
+    liveProjectsEl.textContent = String(
+      projects.filter((project) => (project.status || "live") === "live").length
+    ).padStart(2, "0");
+  }
+
+  if (stackTotalEl) {
+    stackTotalEl.textContent = String(
+      new Set(projects.flatMap((project) => project.stack)).size
+    ).padStart(2, "0");
+  }
 }
 
 function applyStaticTranslations() {
@@ -379,7 +437,14 @@ function renderFilters() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `pill ${state.activeFilter === filter.id ? "active" : ""}`;
-    button.textContent = filter.label;
+    const count = filter.id === "all"
+      ? projects.length
+      : projects.filter((project) => project.audience === filter.id).length;
+    button.innerHTML = `
+      <span>${filter.label}</span>
+      <small>${String(count).padStart(2, "0")}</small>
+    `;
+    button.setAttribute("aria-pressed", String(state.activeFilter === filter.id));
 
     button.addEventListener("click", () => {
       state.activeFilter = filter.id;
@@ -535,6 +600,61 @@ function setResultsCopy(count) {
   resultsCopy.textContent = interpolate(t("projects.resultsMany"), { count });
 }
 
+function setResultsMetrics(projectList) {
+  if (!resultsMetrics) {
+    return;
+  }
+
+  const metrics = [
+    {
+      label: t("status.live"),
+      value: String(
+        projectList.filter((project) => (project.status || "live") === "live").length
+      ).padStart(2, "0"),
+    },
+    {
+      label: t("preview.stackLabel"),
+      value: String(new Set(projectList.flatMap((project) => project.stack)).size).padStart(2, "0"),
+    },
+  ];
+
+  resultsMetrics.innerHTML = metrics.map((metric) => `
+    <article class="metric-pill">
+      <strong>${metric.value}</strong>
+      <span>${metric.label}</span>
+    </article>
+  `).join("");
+}
+
+function focusSearch() {
+  document.getElementById("projects")?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+  window.setTimeout(() => {
+    searchInput.focus();
+    searchInput.select();
+  }, 120);
+}
+
+function getSuggestionQuery(key) {
+  const suggestions = {
+    love: t("projects.suggestLove"),
+    birthday: t("projects.suggestBirthday"),
+    portfolio: t("projects.suggestPortfolio"),
+  };
+
+  return suggestions[key] || key;
+}
+
+function applySearchSuggestion(key) {
+  const nextQuery = getSuggestionQuery(key);
+  searchInput.value = nextQuery;
+  state.searchTerm = nextQuery;
+  renderProjects();
+  focusSearch();
+}
+
 function scrollPreviewIntoView() {
   if (window.matchMedia("(max-width: 960px)").matches) {
     document.querySelector(".preview-column")?.scrollIntoView({
@@ -553,6 +673,7 @@ function copyProjectUrl(url, button) {
   navigator.clipboard.writeText(url).then(() => {
     const originalText = button.textContent;
     button.textContent = t("preview.copied");
+    showToast(t("preview.copied"), "success");
     window.setTimeout(() => {
       button.textContent = originalText;
     }, 1500);
@@ -596,6 +717,7 @@ function copyPortfolioSummary() {
   navigator.clipboard.writeText(summary).then(() => {
     const originalText = copySummaryButton.textContent;
     copySummaryButton.textContent = t("projects.copiedSummary");
+    showToast(t("projects.copiedSummary"), "success");
     window.setTimeout(() => {
       copySummaryButton.textContent = originalText;
     }, 1500);
@@ -683,6 +805,7 @@ function renderProjects() {
   const visibleProjects = getVisibleProjects();
   projectsGrid.innerHTML = "";
   setResultsCopy(visibleProjects.length);
+  setResultsMetrics(visibleProjects);
   clearFiltersButton.disabled =
     state.activeFilter === "all" &&
     state.activeStack === "all" &&
@@ -805,6 +928,11 @@ function renderPreview(project) {
         </p>
         <div class="preview-actions">
           <a class="project-link" href="${project.url}" target="_blank" rel="noreferrer">${t("preview.openSite")}</a>
+          ${
+            project.dedicatedPage
+              ? `<a class="project-link" href="./project.html?id=${encodeURIComponent(project.id)}">${t("preview.dedicatedPageLink")}</a>`
+              : ""
+          }
           <button class="secondary-button" id="copy-link-button" type="button">${t("preview.copyLink")}</button>
           <button class="secondary-button" id="detail-button" type="button">${t("preview.details")}</button>
         </div>
@@ -816,6 +944,7 @@ function renderPreview(project) {
           title="Preview ${localize(project.title)}"
           loading="lazy"
           referrerpolicy="no-referrer"
+          allow="camera; microphone; autoplay; fullscreen; clipboard-read; clipboard-write"
         ></iframe>
       </div>
     </div>
@@ -1004,8 +1133,15 @@ searchInput.addEventListener("input", (event) => {
   renderProjects();
 });
 
+searchSuggestionButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applySearchSuggestion(button.dataset.searchSuggestion);
+  });
+});
+
 copySummaryButton.addEventListener("click", copyPortfolioSummary);
 filterToggle.addEventListener("click", toggleFilters);
+heroSearchTrigger?.addEventListener("click", focusSearch);
 menuToggle.addEventListener("click", () => {
   state.navOpen = !state.navOpen;
   updateMenuToggle();
@@ -1028,6 +1164,19 @@ previewClose.addEventListener("click", hidePreview);
 previewMinimize.addEventListener("click", hidePreview);
 previewMaximize.addEventListener("click", maximizePreview);
 document.addEventListener("keydown", (event) => {
+  const isTextField = ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName) ||
+    document.activeElement?.isContentEditable;
+
+  if (
+    ((event.key === "/" && !event.metaKey && !event.ctrlKey) ||
+      ((event.key === "k" || event.key === "K") && (event.metaKey || event.ctrlKey))) &&
+    !isTextField
+  ) {
+    event.preventDefault();
+    focusSearch();
+    return;
+  }
+
   if (event.key !== "Escape") {
     return;
   }
