@@ -74,6 +74,14 @@
                 Presentation mode
               </button>
             </div>
+            <button class="hero-prompt-shell" id="hero-search-trigger" type="button">
+              <span class="hero-prompt-label" data-i18n="projects.searchLabel">Quick search</span>
+              <strong data-i18n="hero.promptTitle">Jump to any project by title, stack, or story.</strong>
+              <span class="hero-prompt-hint">
+                <kbd>/</kbd>
+                <span data-i18n="hero.promptHint">focus search instantly</span>
+              </span>
+            </button>
           </div>
 
           <aside class="hero-panel">
@@ -183,34 +191,62 @@
               Some deployed sites may block iframe embedding. In that case, the card and open-link flow still work.
             </p>
           </div>
+          <div class="audience-bar">
+            <div class="audience-bar-main">
+              <p class="search-label" data-i18n="projects.audienceFilterLabel">Audience filter</p>
+              <div class="segmented-filter" id="filters"></div>
+            </div>
+            <div class="project-signal-grid">
+              <article class="signal-card">
+                <span class="signal-value" id="live-projects">0</span>
+                <p data-i18n="status.live">Live</p>
+              </article>
+              <article class="signal-card">
+                <span class="signal-value" id="stack-total">0</span>
+                <p data-i18n="preview.stackLabel">Stack</p>
+              </article>
+            </div>
+          </div>
           <div class="toolbar">
-            <button
-              class="secondary-button filter-toggle"
-              id="filter-toggle"
-              type="button"
-              aria-controls="filter-panel"
-              aria-expanded="false"
-              data-i18n="projects.filterToggle"
-            >
-              Filters
-            </button>
-            <label class="search-shell" for="project-search">
+            <label class="search-shell search-shell--prompt" for="project-search">
               <span class="search-label" data-i18n="projects.searchLabel">Quick search</span>
-              <input
-                id="project-search"
-                class="search-input"
-                type="search"
-                autocomplete="off"
-                data-i18n-placeholder="projects.searchPlaceholder"
-                placeholder="Search by title, stack, or highlight"
-              />
+              <div class="search-box">
+                <span class="search-hotkey" aria-hidden="true">/</span>
+                <input
+                  id="project-search"
+                  class="search-input"
+                  type="search"
+                  autocomplete="off"
+                  data-i18n-placeholder="projects.searchPlaceholder"
+                  placeholder="Search by title, stack, or highlight"
+                />
+                <div class="search-suggestions">
+                  <button class="search-chip" type="button" data-search-suggestion="love" data-i18n="projects.suggestLove">
+                    love
+                  </button>
+                  <button class="search-chip" type="button" data-search-suggestion="birthday" data-i18n="projects.suggestBirthday">
+                    birthday
+                  </button>
+                  <button class="search-chip" type="button" data-search-suggestion="portfolio" data-i18n="projects.suggestPortfolio">
+                    portfolio
+                  </button>
+                </div>
+              </div>
             </label>
+            <div class="toolbar-actions">
+              <button
+                class="secondary-button filter-toggle"
+                id="filter-toggle"
+                type="button"
+                aria-controls="filter-panel"
+                aria-expanded="false"
+                data-i18n="projects.filterToggle"
+              >
+                Filters
+              </button>
+            </div>
           </div>
           <div class="filter-panel" id="filter-panel" hidden>
-            <div>
-              <p class="search-label" data-i18n="projects.audienceFilterLabel">Audience filter</p>
-              <div class="filter-row" id="filters"></div>
-            </div>
             <div>
               <p class="search-label" data-i18n="projects.stackFilterLabel">Stack filter</p>
               <div class="filter-row" id="stack-filters"></div>
@@ -221,7 +257,11 @@
             </div>
           </div>
           <div class="results-bar">
-            <p class="results-copy" id="results-copy"></p>
+            <div class="results-copy-wrap">
+              <p class="search-label" data-i18n="projects.liveQueryLabel">Live query</p>
+              <p class="results-copy" id="results-copy"></p>
+            </div>
+            <div class="results-metrics" id="results-metrics"></div>
             <div class="results-actions">
               <button class="secondary-button" id="copy-summary" type="button" data-i18n="projects.copySummary">
                 Copy summary
@@ -306,6 +346,7 @@
         <div id="dialog-content"></div>
       </div>
     </dialog>
+    <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
 
     <script src="./projects.js"></script>
     <script src="./app.js"></script>
