@@ -1,5 +1,56 @@
 const projects = [
   {
+    "id": "vims-project",
+    "title": {
+      "vi": "Vims Project",
+      "en": "Vims Project"
+    },
+    "audience": "personal",
+    "year": "2026",
+    "url": "https://vims-project.vercel.app",
+    "shortDescription": {
+      "vi": "Dự án mới được đồng bộ từ Vercel. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.",
+      "en": "A newly synced Vercel project. You can enrich this card in data/projects-meta.json."
+    },
+    "goal": {
+      "vi": "Đồng bộ tự động dự án mới từ nhà cung cấp hosting và bổ sung metadata sau.",
+      "en": "Automatically sync new hosting projects first, then add richer metadata afterward."
+    },
+    "stack": [
+      "nextjs",
+      "Vercel"
+    ],
+    "highlights": {
+      "vi": [
+        "Đồng bộ tự động",
+        "Vercel",
+        "Bổ sung metadata"
+      ],
+      "en": [
+        "automatic sync",
+        "Vercel",
+        "metadata pending"
+      ]
+    },
+    "status": "needs-metadata",
+    "platform": "vercel",
+    "sourceUrl": "VIMS_Project",
+    "problem": {
+      "vi": "Dự án mới đã được phát hiện từ nhà cung cấp hosting nhưng chưa có case study riêng.",
+      "en": "This newly synced hosting project does not have a dedicated case study yet."
+    },
+    "outcome": {
+      "vi": "Được đưa vào hub để theo dõi và bổ sung nội dung sau.",
+      "en": "Added to the hub for tracking and later enrichment."
+    },
+    "lesson": {
+      "vi": "Giữ workflow đồng bộ tự động giữa nhà cung cấp hosting và portfolio.",
+      "en": "Keep an automated sync workflow between hosting and the portfolio."
+    },
+    "featuredSkill": "nextjs",
+    "thumbnailTone": "warm"
+  },
+  {
     "id": "phatleework7-github-io",
     "title": {
       "vi": "Phatleework7 GitHub.io",
