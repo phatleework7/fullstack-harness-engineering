@@ -1,14 +1,14 @@
 [
   {
-    "id": "vims-project",
-    "name": "vims-project",
+    "id": "vhims-project",
+    "name": "vhims-project",
     "platform": "vercel",
-    "url": "https://vims-project.vercel.app",
+    "url": "https://vhims-project.vercel.app",
     "year": "2026",
     "framework": "nextjs",
-    "repo": "VIMS_Project",
+    "repo": "VHIMS_Project",
     "createdAt": 1780042492361,
-    "updatedAt": 1780248271409,
+    "updatedAt": 1780337371221,
     "stack": [
       "nextjs",
       "Vercel"

@@ -1,13 +1,13 @@
 const projects = [
   {
-    "id": "vims-project",
+    "id": "vhims-project",
     "title": {
-      "vi": "Vims Project",
-      "en": "Vims Project"
+      "vi": "Vhims Project",
+      "en": "Vhims Project"
     },
     "audience": "personal",
     "year": "2026",
-    "url": "https://vims-project.vercel.app",
+    "url": "https://vhims-project.vercel.app",
     "shortDescription": {
       "vi": "Dự án mới được đồng bộ từ Vercel. Bạn có thể bổ sung nội dung thẻ trong data/projects-meta.json.",
       "en": "A newly synced Vercel project. You can enrich this card in data/projects-meta.json."
@@ -34,7 +34,7 @@ const projects = [
     },
     "status": "needs-metadata",
     "platform": "vercel",
-    "sourceUrl": "VIMS_Project",
+    "sourceUrl": "VHIMS_Project",
     "problem": {
       "vi": "Dự án mới đã được phát hiện từ nhà cung cấp hosting nhưng chưa có case study riêng.",
       "en": "This newly synced hosting project does not have a dedicated case study yet."
